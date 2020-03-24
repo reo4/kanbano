@@ -1,6 +1,10 @@
 .header {
   display: flex;
   justify-content: center;
+  position: relative;
+  left: 0;
+  right: 0;
+  top:0;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   background-color: white;
   padding: 14px 25px;

@@ -1,13 +1,15 @@
 $font-sm: 13px;
 $font-xs: 11px;
 .board {
-  margin-top: 20px;
-  padding: 20px;
   display: flex;
   color: #383838;
+  overflow-x: auto;
+  flex-grow: 1;
+  margin-top: 40px;
   .list{
-    width: 320px;
-    margin: 0 20px;
+    min-width: 320px;
+    max-width: 320px;
+    padding: 0 20px;
     .list-title {
       padding-bottom: 18px;
     }
