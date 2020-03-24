@@ -1,0 +1,74 @@
+$font-sm: 13px;
+$font-xs: 11px;
+.board {
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  color: #383838;
+  .list{
+    width: 320px;
+    margin: 0 20px;
+    .list-title {
+      padding-bottom: 18px;
+    }
+    &-grey .list-title {
+      border-bottom: 3px solid #ddd;
+    }
+    &-cyan .list-title {
+      border-bottom: 3px solid #5BDBF6;
+    }
+    &-orange .list-title {
+      border-bottom: 3px solid #FFB855;
+    }
+    &-green .list-title {
+      border-bottom: 3px solid #3E993C;
+    }
+    .list-content {
+     margin-top: 18px;
+     .card {
+       background-color: white;
+       box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15);
+       padding: 16px 24px;
+       border-radius: 3px;
+       margin-bottom: 15px;
+       .card-content {
+         display: flex;
+         flex-direction: column;
+         .title {
+           font-weight: 600;
+           margin-bottom: 10px;
+         }
+         .description {
+          color: #999;
+          font-size: $font-sm;
+          margin-top: 10px;
+          margin-bottom: 20px;
+        }
+        .label {
+          font-size: $font-sm;
+          display: inline-block;
+          align-self: flex-start;
+          margin-bottom: 5px;
+          border: 1px solid #e4e4e4;
+          padding: 3px 12px;
+          border-radius: 25px;
+          color: #777;
+          i {
+            margin-right: 4px;
+          }
+        }
+        .due-date {
+          font-size: $font-xs;
+          display: inline-block;
+          align-self: flex-start;
+          padding: 3px 12px;
+          border-radius: 25px;
+          background-color: #ff4949;
+          color: white;
+          margin-top: 10px;
+        }
+       }
+     } 
+    }
+  }
+}
