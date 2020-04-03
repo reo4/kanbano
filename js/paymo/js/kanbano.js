@@ -4,6 +4,7 @@
     var defaults = {
       wrapper: 'body',
       cards: '.card',
+      lists: '.list'
     }
 
     if (arguments[0] && typeof arguments[0] === "object") {
@@ -61,49 +62,43 @@
     });
 
     container.addEventListener("mousemove", e => {
-      var buttons = document.querySelectorAll(this.options.cards);
-      offsetX = e.clientX - initialX + initialPositionX;
-      offsetY = e.clientY - initialY + initialPositionY;
       e.preventDefault();
       if (active) {
+        var centerX = cloned.getBoundingClientRect().top + cloned.offsetHeight / 2
+        var centerY = cloned.getBoundingClientRect().left + cloned.offsetWidth / 2
+        var lists = document.querySelectorAll(this.options.lists);
+        offsetX = e.clientX - initialX + initialPositionX;
+        offsetY = e.clientY - initialY + initialPositionY;
         cloned.style.left = offsetX + 'px'
         cloned.style.top = offsetY + 'px'
 
-        buttons.forEach(button => {
-          if (button !== activeButton && !button.parentNode.classList.contains('cloned')) {
-            if (e.clientY > prevY) {
-              if ((cloned.getBoundingClientRect().right > button.getBoundingClientRect().left && cloned.getBoundingClientRect().right < button.getBoundingClientRect().right ||
-                cloned.getBoundingClientRect().left > button.getBoundingClientRect().left && cloned.getBoundingClientRect().left < button.getBoundingClientRect().right) &&
-                (cloned.getBoundingClientRect().top > button.getBoundingClientRect().top && cloned.getBoundingClientRect().top < button.getBoundingClientRect().bottom ||
-                  cloned.getBoundingClientRect().bottom > button.getBoundingClientRect().top && cloned.getBoundingClientRect().bottom < button.getBoundingClientRect().bottom) &&
-                (cloned.getBoundingClientRect().bottom > button.getBoundingClientRect().top + button.offsetHeight / 2)
-              ) {
+        lists.forEach(list => {
+          var listLeft = list.getBoundingClientRect().left
+          var listRight = list.getBoundingClientRect().right
+          if (centerY > listLeft && centerY < listRight) {
+            var cards = list.querySelectorAll(this.options.cards)
+            var centers = []
+            cards.forEach(button => {
+              var buttonCenterX = button.getBoundingClientRect().top + cloned.offsetHeight / 2
+              centers.push(Math.abs(centerX - buttonCenterX))
+            })
+            var index = centers.indexOf(Math.min.apply(Math, centers))
+            var button = cards[index]
+            if (button !== activeButton && !button.parentNode.classList.contains('cloned')) {
+              if (centerX > button.getBoundingClientRect().top + cloned.offsetHeight / 2) {
                 button.parentNode.insertBefore(
                   activeButton,
                   button.nextSibling
                 );
               }
-            }
-            else if (e.clientY < prevY) {
-              if ((cloned.getBoundingClientRect().right > button.getBoundingClientRect().left && cloned.getBoundingClientRect().right < button.getBoundingClientRect().right ||
-                cloned.getBoundingClientRect().left > button.getBoundingClientRect().left && cloned.getBoundingClientRect().left < button.getBoundingClientRect().right) &&
-                (cloned.getBoundingClientRect().top > button.getBoundingClientRect().top && cloned.getBoundingClientRect().top < button.getBoundingClientRect().bottom ||
-                  cloned.getBoundingClientRect().bottom > button.getBoundingClientRect().top && cloned.getBoundingClientRect().bottom < button.getBoundingClientRect().bottom)
-              ) {
-                if (cloned.getBoundingClientRect().top > button.getBoundingClientRect().top && cloned.getBoundingClientRect().top < button.getBoundingClientRect().bottom && cloned.getBoundingClientRect().top > button.getBoundingClientRect().top + button.offsetHeight / 2) {
-                  button.parentNode.insertBefore(
-                    activeButton,
-                    button.nextSibling
-                  );
-                }
-                else if (cloned.getBoundingClientRect().top > button.getBoundingClientRect().top && cloned.getBoundingClientRect().top < button.getBoundingClientRect().bottom && cloned.getBoundingClientRect().top < button.getBoundingClientRect().top + button.offsetHeight / 2) {
-                  button.parentNode.insertBefore(
-                    activeButton,
-                    button
-                  );
-                }
+              else if (centerX < button.getBoundingClientRect().top + cloned.offsetHeight / 2) {
+                button.parentNode.insertBefore(
+                  activeButton,
+                  button
+                );
               }
             }
+
           }
         })
 
