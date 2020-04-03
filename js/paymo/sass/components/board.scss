@@ -26,51 +26,55 @@ $font-xs: 11px;
       border-bottom: 3px solid #3E993C;
     }
     .list-content {
-     margin-top: 18px;
-     .card {
-       background-color: white;
-       box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15);
-       padding: 16px 24px;
-       border-radius: 3px;
-       margin-bottom: 15px;
-       .card-content {
-         display: flex;
-         flex-direction: column;
-         .title {
-           font-weight: 600;
-           margin-bottom: 10px;
-         }
-         .description {
-          color: #999;
-          font-size: $font-sm;
-          margin-top: 10px;
-          margin-bottom: 20px;
-        }
-        .label {
-          font-size: $font-sm;
-          display: inline-block;
-          align-self: flex-start;
-          margin-bottom: 5px;
-          border: 1px solid #e4e4e4;
-          padding: 3px 12px;
-          border-radius: 25px;
-          color: #777;
-          i {
-            margin-right: 4px;
-          }
-        }
-        .due-date {
-          font-size: $font-xs;
-          display: inline-block;
-          align-self: flex-start;
-          padding: 3px 12px;
-          border-radius: 25px;
-          background-color: #ff4949;
-          color: white;
-          margin-top: 10px;
-        }
-       }
-     } 
+     margin-top: 15px;
+     padding-right: 14px;
+     padding-top: 8px;
+     overflow-y: auto;
+     height: 87%;
     }
   }
 }
+.card {
+  background-color: white;
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  margin-bottom: 15px;
+  padding: 16px 24px;
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    .title {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .description {
+      color: #999;
+      font-size: $font-sm;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .label {
+      font-size: $font-sm;
+      display: inline-block;
+      align-self: flex-start;
+      margin-bottom: 5px;
+      border: 1px solid #e4e4e4;
+      padding: 3px 12px;
+      border-radius: 25px;
+      color: #777;
+      i {
+        margin-right: 4px;
+      }
+    }
+    .due-date {
+      font-size: $font-xs;
+      display: inline-block;
+      align-self: flex-start;
+      padding: 3px 12px;
+      border-radius: 25px;
+      background-color: #ff4949;
+      color: white;
+      margin-top: 10px;
+    }
+  }
+} 

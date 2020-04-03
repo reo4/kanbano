@@ -1,0 +1,22 @@
+.dragging-active {
+  position: relative;
+}
+.dragging-active::before {
+  content: "";
+  background: #c9ccd0;
+  opacity: .3;
+  position: absolute;
+  z-index: 500;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 4px;
+}
+.cloned {
+  position: absolute;
+  z-index: 1000;
+}
+.cloned {
+  /* transform: rotate(3deg); */
+}
