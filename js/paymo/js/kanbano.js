@@ -28,8 +28,11 @@
     var activeButton;
     var wrapper = document.body;
     var container = wrapper;
+    var board = document.querySelector(this.options.board);
     var scrollBottomInterval;
     var scrollTopInterval;
+    var scrollRightInterval;
+    var scrollLeftInterval;
     var cloned;
     var cloneButton;
 
@@ -115,12 +118,11 @@
             var listContent = list.querySelector(this.options.listContent)
 
             if (cloned.getBoundingClientRect().bottom > listContent.getBoundingClientRect().bottom - 150) {
-              var bottomDifference = parseInt((wrapper.getBoundingClientRect().bottom - cloned.getBoundingClientRect().bottom) * .05)
-              var bottomIncrement = parseInt((cloned.getBoundingClientRect().bottom - listContent.getBoundingClientRect().bottom + 150) * .02)
+              var bottomIncrement = parseInt((cloned.getBoundingClientRect().bottom - listContent.getBoundingClientRect().bottom + 150) * .06)
               clearInterval(scrollBottomInterval)
               scrollBottomInterval = setInterval(() => {
                 listContent.scrollTop = listContent.scrollTop + bottomIncrement
-              }, bottomDifference)
+              }, 10)
               listContent.addEventListener('scroll', () => {
                 if (listContent.scrollHeight - listContent.scrollTop === listContent.clientHeight) {
                   clearInterval(scrollBottomInterval)
@@ -131,13 +133,12 @@
               clearInterval(scrollBottomInterval)
             }
 
-            if (cloned.getBoundingClientRect().top < listContent.getBoundingClientRect().top + 200) {
-              var topDifference = parseInt(cloned.getBoundingClientRect().top * .05)
-              var topIncrement = parseInt((listContent.getBoundingClientRect().top + 200 - cloned.getBoundingClientRect().top) * .02)
+            if (cloned.getBoundingClientRect().top < listContent.getBoundingClientRect().top + 150) {
+              var topIncrement = parseInt((listContent.getBoundingClientRect().top + 150 - cloned.getBoundingClientRect().top) * .06)
               clearInterval(scrollTopInterval)
               scrollTopInterval = setInterval(() => {
                 listContent.scrollTop = listContent.scrollTop - topIncrement
-              }, topDifference)
+              }, 10)
               listContent.addEventListener('scroll', () => {
                 if (listContent.scrollTop === 0) {
                   clearInterval(scrollTopInterval)
@@ -147,47 +148,25 @@
             else {
               clearInterval(scrollTopInterval)
             }
-            // if (listContent.getBoundingClientRect().bottom - cloned.getBoundingClientRect().bottom < 75 && listContent.scrollHeight - listContent.scrollTop !== listContent.clientHeight) {
-            //   if (e.clientY > prevY) {
-            //     scrollBottomInterval = setInterval(() => {
-            //       listContent.scrollTop = listContent.scrollTop + 1
-            //     }, 150)
-            //   }
-            //   listContent.addEventListener('scroll', () => {
-            //     if (listContent.scrollHeight - listContent.scrollTop === listContent.clientHeight) {
-            //       for (var i = 0; i < scrollBottomInterval + 1; i++) {
-            //         clearInterval(i)
-            //       }
-            //     }
-            //   })
-            // }
-            // else {
-            //   for (var i = 0; i < scrollBottomInterval + 1; i++) {
-            //     clearInterval(i)
-            //   }
-            // }
-            // if (cloned.getBoundingClientRect().top - listContent.getBoundingClientRect().top < 75 && listContent.scrollTop !== 0) {
-            //   if (e.clientY < prevY) {
-            //     scrollTopInterval = setInterval(() => {
-            //       listContent.scrollTop = listContent.scrollTop - 1
-            //     }, 150)
-            //   }
-            //   listContent.addEventListener('scroll', () => {
-            //     if (listContent.scrollTop === 0) {
-            //       for (var i = 0; i < scrollTopInterval + 1; i++) {
-            //         clearInterval(i)
-            //       }
-            //     }
-            //   })
-            // }
-            // else {
-            //   for (var i = 0; i < scrollTopInterval + 1; i++) {
-            //     clearInterval(i)
-            //   }
-            // }
           }
-
         })
+
+
+        if (cloned.getBoundingClientRect().right > board.getBoundingClientRect().right - 250) {
+          var rightIncrement = parseInt((cloned.getBoundingClientRect().right - board.getBoundingClientRect().right + 250) * .06)
+          clearInterval(scrollRightInterval)
+          scrollRightInterval = setInterval(() => {
+            board.scrollLeft = board.scrollLeft + rightIncrement
+          }, 10)
+          board.addEventListener('scroll', () => {
+            if (board.scrollWidth - board.scrollLeft === board.clientWidth) {
+              clearInterval(scrollRightInterval)
+            }
+          })
+        }
+        else {
+          clearInterval(scrollRightInterval)
+        }
 
 
         prevX = e.clientX;
@@ -205,6 +184,8 @@
         initialPositionY = 0;
         clearInterval(scrollTopInterval)
         clearInterval(scrollBottomInterval)
+        clearInterval(scrollRightInterval)
+        clearInterval(scrollLeftInterval)
         cloned.remove();
       }
     });
