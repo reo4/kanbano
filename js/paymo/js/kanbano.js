@@ -2,9 +2,10 @@
   this.Kanbano = function () {
 
     var defaults = {
-      wrapper: 'body',
+      board: '.board',
       cards: '.card',
-      lists: '.list'
+      lists: '.list',
+      listContent: '.list-content'
     }
 
     if (arguments[0] && typeof arguments[0] === "object") {
@@ -25,8 +26,10 @@
     var initialPositionY = 0;
     var active = false;
     var activeButton;
-    var wrapper = document.querySelector(this.options.wrapper);
+    var wrapper = document.body;
     var container = wrapper;
+    var scrollBottomInterval;
+    var scrollTopInterval;
     var cloned;
     var cloneButton;
 
@@ -46,9 +49,12 @@
       });
       if (activeButton) {
         wrapper.style.position = "relative";
+        wrapper.style.overflow = "hidden"
         cloneButton = activeButton.cloneNode(true);
         cloned = document.createElement("div");
-        cloned.classList.add("cloned");
+        cloned.classList.add('cloned');
+        cloned.style.position = 'absolute'
+        cloned.style.zIndex = '1000'
         wrapper.prepend(cloned);
         cloned.appendChild(cloneButton);
         initialPositionX = activeButton.getBoundingClientRect().left;
@@ -62,13 +68,13 @@
     });
 
     container.addEventListener("mousemove", e => {
+      offsetX = e.clientX - initialX + initialPositionX;
+      offsetY = e.clientY - initialY + initialPositionY;
       e.preventDefault();
       if (active) {
         var centerX = cloned.getBoundingClientRect().top + cloned.offsetHeight / 2
         var centerY = cloned.getBoundingClientRect().left + cloned.offsetWidth / 2
         var lists = document.querySelectorAll(this.options.lists);
-        offsetX = e.clientX - initialX + initialPositionX;
-        offsetY = e.clientY - initialY + initialPositionY;
         cloned.style.left = offsetX + 'px'
         cloned.style.top = offsetY + 'px'
 
@@ -77,30 +83,112 @@
           var listRight = list.getBoundingClientRect().right
           if (centerY > listLeft && centerY < listRight) {
             var cards = list.querySelectorAll(this.options.cards)
-            var centers = []
-            cards.forEach(button => {
-              var buttonCenterX = button.getBoundingClientRect().top + cloned.offsetHeight / 2
-              centers.push(Math.abs(centerX - buttonCenterX))
-            })
-            var index = centers.indexOf(Math.min.apply(Math, centers))
-            var button = cards[index]
-            if (button !== activeButton && !button.parentNode.classList.contains('cloned')) {
-              if (centerX > button.getBoundingClientRect().top + cloned.offsetHeight / 2) {
-                button.parentNode.insertBefore(
-                  activeButton,
-                  button.nextSibling
-                );
-              }
-              else if (centerX < button.getBoundingClientRect().top + cloned.offsetHeight / 2) {
-                button.parentNode.insertBefore(
-                  activeButton,
-                  button
-                );
+            if (cards.length) {
+              var centers = []
+              cards.forEach(button => {
+                var buttonCenterX = button.getBoundingClientRect().top + cloned.offsetHeight / 2
+                centers.push(Math.abs(centerX - buttonCenterX))
+              })
+              var index = centers.indexOf(Math.min.apply(Math, centers))
+              var button = cards[index]
+              if (button !== activeButton && !button.parentNode.classList.contains('cloned')) {
+                if (centerX > button.getBoundingClientRect().top + cloned.offsetHeight / 2) {
+                  button.parentNode.insertBefore(
+                    activeButton,
+                    button.nextSibling
+                  );
+                }
+                else if (centerX < button.getBoundingClientRect().top + cloned.offsetHeight / 2) {
+                  button.parentNode.insertBefore(
+                    activeButton,
+                    button
+                  );
+                }
               }
             }
-
+            else {
+              list.querySelector(this.options.listContent).appendChild(activeButton)
+            }
           }
+
+          if (list.contains(activeButton)) {
+            var listContent = list.querySelector(this.options.listContent)
+
+            if (cloned.getBoundingClientRect().bottom > listContent.getBoundingClientRect().bottom - 150) {
+              var bottomDifference = parseInt((wrapper.getBoundingClientRect().bottom - cloned.getBoundingClientRect().bottom) * .05)
+              var bottomIncrement = parseInt((cloned.getBoundingClientRect().bottom - listContent.getBoundingClientRect().bottom + 150) * .02)
+              clearInterval(scrollBottomInterval)
+              scrollBottomInterval = setInterval(() => {
+                listContent.scrollTop = listContent.scrollTop + bottomIncrement
+              }, bottomDifference)
+              listContent.addEventListener('scroll', () => {
+                if (listContent.scrollHeight - listContent.scrollTop === listContent.clientHeight) {
+                  clearInterval(scrollBottomInterval)
+                }
+              })
+            }
+            else {
+              clearInterval(scrollBottomInterval)
+            }
+
+            if (cloned.getBoundingClientRect().top < listContent.getBoundingClientRect().top + 200) {
+              var topDifference = parseInt(cloned.getBoundingClientRect().top * .05)
+              var topIncrement = parseInt((listContent.getBoundingClientRect().top + 200 - cloned.getBoundingClientRect().top) * .02)
+              clearInterval(scrollTopInterval)
+              scrollTopInterval = setInterval(() => {
+                listContent.scrollTop = listContent.scrollTop - topIncrement
+              }, topDifference)
+              listContent.addEventListener('scroll', () => {
+                if (listContent.scrollTop === 0) {
+                  clearInterval(scrollTopInterval)
+                }
+              })
+            }
+            else {
+              clearInterval(scrollTopInterval)
+            }
+            // if (listContent.getBoundingClientRect().bottom - cloned.getBoundingClientRect().bottom < 75 && listContent.scrollHeight - listContent.scrollTop !== listContent.clientHeight) {
+            //   if (e.clientY > prevY) {
+            //     scrollBottomInterval = setInterval(() => {
+            //       listContent.scrollTop = listContent.scrollTop + 1
+            //     }, 150)
+            //   }
+            //   listContent.addEventListener('scroll', () => {
+            //     if (listContent.scrollHeight - listContent.scrollTop === listContent.clientHeight) {
+            //       for (var i = 0; i < scrollBottomInterval + 1; i++) {
+            //         clearInterval(i)
+            //       }
+            //     }
+            //   })
+            // }
+            // else {
+            //   for (var i = 0; i < scrollBottomInterval + 1; i++) {
+            //     clearInterval(i)
+            //   }
+            // }
+            // if (cloned.getBoundingClientRect().top - listContent.getBoundingClientRect().top < 75 && listContent.scrollTop !== 0) {
+            //   if (e.clientY < prevY) {
+            //     scrollTopInterval = setInterval(() => {
+            //       listContent.scrollTop = listContent.scrollTop - 1
+            //     }, 150)
+            //   }
+            //   listContent.addEventListener('scroll', () => {
+            //     if (listContent.scrollTop === 0) {
+            //       for (var i = 0; i < scrollTopInterval + 1; i++) {
+            //         clearInterval(i)
+            //       }
+            //     }
+            //   })
+            // }
+            // else {
+            //   for (var i = 0; i < scrollTopInterval + 1; i++) {
+            //     clearInterval(i)
+            //   }
+            // }
+          }
+
         })
+
 
         prevX = e.clientX;
         prevY = e.clientY;
@@ -115,6 +203,8 @@
         wrapper.removeAttribute('style');
         initialPositionX = 0;
         initialPositionY = 0;
+        clearInterval(scrollTopInterval)
+        clearInterval(scrollBottomInterval)
         cloned.remove();
       }
     });
