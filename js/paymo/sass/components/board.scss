@@ -2,36 +2,37 @@ $font-sm: 13px;
 $font-xs: 11px;
 .board {
   display: flex;
+  align-items: flex-start;
   color: #383838;
   overflow-x: auto;
   flex-grow: 1;
-  margin-top: 40px;
-  .list{
-    min-width: 320px;
-    max-width: 320px;
-    padding: 0 20px;
-    .list-title {
-      padding-bottom: 18px;
-    }
-    &-grey .list-title {
-      border-bottom: 3px solid #ddd;
-    }
-    &-cyan .list-title {
-      border-bottom: 3px solid #5BDBF6;
-    }
-    &-orange .list-title {
-      border-bottom: 3px solid #FFB855;
-    }
-    &-green .list-title {
-      border-bottom: 3px solid #3E993C;
-    }
-    .list-content {
-     margin-top: 15px;
-     padding-right: 14px;
-     padding-top: 8px;
-     overflow-y: auto;
-     height: 87%;
-    }
+  padding-top: 40px;
+}
+.list{
+  min-width: 320px;
+  max-width: 320px;
+  padding: 12px 20px;
+  .list-title {
+    padding-bottom: 18px;
+  }
+  &-grey .list-title {
+    border-bottom: 3px solid #ddd;
+  }
+  &-cyan .list-title {
+    border-bottom: 3px solid #5BDBF6;
+  }
+  &-orange .list-title {
+    border-bottom: 3px solid #FFB855;
+  }
+  &-green .list-title {
+    border-bottom: 3px solid #3E993C;
+  }
+  .list-content {
+    margin-top: 15px;
+    padding-right: 14px;
+    padding-top: 8px;
+    overflow-y: auto;
+    max-height: 75vh;
   }
 }
 .card {

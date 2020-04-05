@@ -4,7 +4,12 @@
     var defaults = {
       board: '.board',
       cards: '.card',
+      cloneCardClass: 'cloned-card',
+      cloneListClass: 'cloned-list',
+      activeCardClass: 'dragging-active-card',
+      activeListClass: 'dragging-active-list',
       lists: '.list',
+      listTitle: '.list-title',
       listContent: '.list-content'
     }
 
@@ -24,8 +29,8 @@
     var prevY = 0;
     var initialPositionX = 0;
     var initialPositionY = 0;
-    var active = false;
     var activeButton;
+    var activeList;
     var wrapper = document.body;
     var container = wrapper;
     var board = document.querySelector(this.options.board);
@@ -34,12 +39,12 @@
     var scrollRightInterval;
     var scrollLeftInterval;
     var cloned;
-    var cloneButton;
 
 
 
     container.addEventListener("mousedown", e => {
       var buttons = document.querySelectorAll(this.options.cards);
+      var lists = document.querySelectorAll(this.options.lists)
       initialX = e.clientX;
       initialY = e.clientY;
       prevX = e.clientX;
@@ -47,15 +52,14 @@
       buttons.forEach(button => {
         if (e.target === button || button.contains(event.target)) {
           activeButton = button;
-          active = true;
         }
       });
       if (activeButton) {
+        var cloneButton = activeButton.cloneNode(true);
         wrapper.style.position = "relative";
         wrapper.style.overflow = "hidden"
-        cloneButton = activeButton.cloneNode(true);
         cloned = document.createElement("div");
-        cloned.classList.add('cloned');
+        cloned.classList.add(this.options.cloneCardClass);
         cloned.style.position = 'absolute'
         cloned.style.zIndex = '1000'
         wrapper.prepend(cloned);
@@ -63,18 +67,43 @@
         initialPositionX = activeButton.getBoundingClientRect().left;
         initialPositionY = activeButton.getBoundingClientRect().top;
         cloned.style.width = activeButton.offsetWidth + 'px'
+        cloned.style.height = activeButton.offsetHeight + 'px'
         cloned.firstChild.style.margin = 0 + 'px'
         cloned.style.left = initialPositionX + 'px'
         cloned.style.top = initialPositionY + 'px'
-        activeButton.classList.add("dragging-active");
+        activeButton.classList.add(this.options.activeCardClass);
+      }
+      lists.forEach(list => {
+        var listTitle = list.querySelector(this.options.listTitle)
+        if (event.target === listTitle || listTitle.contains(event.target)) {
+          activeList = list
+        }
+      })
+      if (activeList) {
+        var cloneList = activeList.cloneNode(true);
+        wrapper.style.position = "relative";
+        wrapper.style.overflow = "hidden"
+        cloned = document.createElement("div");
+        cloned.classList.add(this.options.cloneListClass);
+        cloned.style.position = 'absolute'
+        cloned.style.zIndex = '1000'
+        wrapper.prepend(cloned);
+        cloned.appendChild(cloneList);
+        initialPositionX = activeList.getBoundingClientRect().left;
+        initialPositionY = activeList.getBoundingClientRect().top;
+        cloned.style.width = activeList.offsetWidth + 'px'
+        cloned.style.height = activeList.offsetHeight + 'px'
+        cloned.style.left = initialPositionX + 'px'
+        cloned.style.top = initialPositionY + 'px'
+        activeList.classList.add(this.options.activeListClass);
       }
     });
 
     container.addEventListener("mousemove", e => {
-      offsetX = e.clientX - initialX + initialPositionX;
-      offsetY = e.clientY - initialY + initialPositionY;
       e.preventDefault();
-      if (active) {
+      if (activeButton) {
+        offsetX = e.clientX - initialX + initialPositionX;
+        offsetY = e.clientY - initialY + initialPositionY;
         var centerX = cloned.getBoundingClientRect().top + cloned.offsetHeight / 2
         var centerY = cloned.getBoundingClientRect().left + cloned.offsetWidth / 2
         var lists = document.querySelectorAll(this.options.lists);
@@ -94,7 +123,7 @@
               })
               var index = centers.indexOf(Math.min.apply(Math, centers))
               var button = cards[index]
-              if (button !== activeButton && !button.parentNode.classList.contains('cloned')) {
+              if (button !== activeButton) {
                 if (centerX > button.getBoundingClientRect().top + cloned.offsetHeight / 2) {
                   button.parentNode.insertBefore(
                     activeButton,
@@ -113,7 +142,11 @@
               list.querySelector(this.options.listContent).appendChild(activeButton)
             }
           }
+        })
 
+        // scrolling
+
+        lists.forEach(list => {
           if (list.contains(activeButton)) {
             var listContent = list.querySelector(this.options.listContent)
 
@@ -124,7 +157,6 @@
               var bottomIncrement = parseInt((cloned.getBoundingClientRect().bottom - listContent.getBoundingClientRect().bottom + 150) * .02)
               clearInterval(scrollBottomInterval)
               scrollBottomInterval = setInterval(() => {
-                console.log(90)
                 listContent.scrollTop = listContent.scrollTop + bottomIncrement
               }, bottomDifference)
               listContent.addEventListener('scroll', () => {
@@ -144,7 +176,6 @@
               var topIncrement = parseInt((listContent.getBoundingClientRect().top + 150 - cloned.getBoundingClientRect().top) * .02)
               clearInterval(scrollTopInterval)
               scrollTopInterval = setInterval(() => {
-                console.log(100)
                 listContent.scrollTop = listContent.scrollTop - topIncrement
               }, topDifference)
               listContent.addEventListener('scroll', () => {
@@ -159,14 +190,12 @@
           }
         })
 
-
         if (cloned.getBoundingClientRect().right > board.getBoundingClientRect().right - 150 &&
           board.scrollWidth - board.scrollLeft !== board.clientWidth
         ) {
           var rightIncrement = parseInt((cloned.getBoundingClientRect().right - board.getBoundingClientRect().right + 150) * .05)
           clearInterval(scrollRightInterval)
           scrollRightInterval = setInterval(() => {
-            console.log(50)
             board.scrollLeft = board.scrollLeft + rightIncrement
           }, 10)
           board.addEventListener('scroll', () => {
@@ -185,7 +214,6 @@
           var LeftIncrement = parseInt((board.getBoundingClientRect().left + 150 - cloned.getBoundingClientRect().left) * .05)
           clearInterval(scrollLeftInterval)
           scrollLeftInterval = setInterval(() => {
-            console.log(200)
             board.scrollLeft = board.scrollLeft - LeftIncrement
           }, 10)
           board.addEventListener('scroll', () => {
@@ -202,13 +230,44 @@
         prevX = e.clientX;
         prevY = e.clientY;
       }
+      if (activeList) {
+        offsetX = e.clientX - initialX + initialPositionX;
+        offsetY = e.clientY - initialY + initialPositionY;
+        var centerX = cloned.getBoundingClientRect().top + cloned.offsetHeight / 2
+        var centerY = cloned.getBoundingClientRect().left + cloned.offsetWidth / 2
+        var lists = document.querySelectorAll(this.options.lists);
+        var newLists = []
+        cloned.style.left = offsetX + 'px'
+        cloned.style.top = offsetY + 'px'
+        var centers = []
+        lists.forEach(list => {
+          if (list !== activeList && list !== cloned.querySelector('.list')) {
+            newLists.push(list)
+            var center = list.getBoundingClientRect().left + list.offsetWidth / 2
+            centers.push(Math.abs(center - centerY))
+          }
+        })
+        var index = centers.indexOf(Math.min.apply(Math, centers))
+        var list = newLists[index]
+        if (centerY > list.getBoundingClientRect().left && centerY < list.getBoundingClientRect().left + list.offsetWidth / 2) {
+          board.insertBefore(
+            activeList,
+            list.nextSibling
+          )
+        }
+        else if (centerY < list.getBoundingClientRect().right && centerY > list.getBoundingClientRect().right - list.offsetWidth / 2) {
+          board.insertBefore(
+            activeList,
+            list
+          )
+        }
+      }
     });
 
     container.addEventListener("mouseup", e => {
       if (activeButton) {
-        activeButton.classList.remove("dragging-active");
+        activeButton.classList.remove(this.options.activeCardClass);
         activeButton = undefined;
-        active = false;
         wrapper.removeAttribute('style');
         initialPositionX = 0;
         initialPositionY = 0;
@@ -216,6 +275,14 @@
         clearInterval(scrollBottomInterval)
         clearInterval(scrollRightInterval)
         clearInterval(scrollLeftInterval)
+        cloned.remove();
+      }
+      if (activeList) {
+        activeList.classList.remove(this.options.activeListClass);
+        activeList = undefined;
+        wrapper.removeAttribute('style')
+        initialPositionX = 0;
+        initialPositionY = 0;
         cloned.remove();
       }
     });
