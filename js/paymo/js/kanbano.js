@@ -117,11 +117,14 @@
           if (list.contains(activeButton)) {
             var listContent = list.querySelector(this.options.listContent)
 
-            if (cloned.getBoundingClientRect().bottom > listContent.getBoundingClientRect().bottom - 150) {
+            if (cloned.getBoundingClientRect().bottom > listContent.getBoundingClientRect().bottom - 150 &&
+              listContent.scrollHeight - listContent.scrollTop !== listContent.clientHeight
+            ) {
               var bottomDifference = parseInt((wrapper.getBoundingClientRect().bottom - cloned.getBoundingClientRect().bottom) * .05)
               var bottomIncrement = parseInt((cloned.getBoundingClientRect().bottom - listContent.getBoundingClientRect().bottom + 150) * .02)
               clearInterval(scrollBottomInterval)
               scrollBottomInterval = setInterval(() => {
+                console.log(90)
                 listContent.scrollTop = listContent.scrollTop + bottomIncrement
               }, bottomDifference)
               listContent.addEventListener('scroll', () => {
@@ -134,11 +137,14 @@
               clearInterval(scrollBottomInterval)
             }
 
-            if (cloned.getBoundingClientRect().top < listContent.getBoundingClientRect().top + 150) {
+            if (cloned.getBoundingClientRect().top < listContent.getBoundingClientRect().top + 150 &&
+              listContent.scrollTop !== 0
+            ) {
               var topDifference = parseInt(cloned.getBoundingClientRect().top * .05)
               var topIncrement = parseInt((listContent.getBoundingClientRect().top + 150 - cloned.getBoundingClientRect().top) * .02)
               clearInterval(scrollTopInterval)
               scrollTopInterval = setInterval(() => {
+                console.log(100)
                 listContent.scrollTop = listContent.scrollTop - topIncrement
               }, topDifference)
               listContent.addEventListener('scroll', () => {
@@ -154,10 +160,13 @@
         })
 
 
-        if (cloned.getBoundingClientRect().right > board.getBoundingClientRect().right - 250) {
-          var rightIncrement = parseInt((cloned.getBoundingClientRect().right - board.getBoundingClientRect().right + 250) * .03)
+        if (cloned.getBoundingClientRect().right > board.getBoundingClientRect().right - 150 &&
+          board.scrollWidth - board.scrollLeft !== board.clientWidth
+        ) {
+          var rightIncrement = parseInt((cloned.getBoundingClientRect().right - board.getBoundingClientRect().right + 150) * .05)
           clearInterval(scrollRightInterval)
           scrollRightInterval = setInterval(() => {
+            console.log(50)
             board.scrollLeft = board.scrollLeft + rightIncrement
           }, 10)
           board.addEventListener('scroll', () => {
@@ -168,6 +177,25 @@
         }
         else {
           clearInterval(scrollRightInterval)
+        }
+
+        if (cloned.getBoundingClientRect().left < board.getBoundingClientRect().left + 150 &&
+          board.scrollLeft !== 0
+        ) {
+          var LeftIncrement = parseInt((board.getBoundingClientRect().left + 150 - cloned.getBoundingClientRect().left) * .05)
+          clearInterval(scrollLeftInterval)
+          scrollLeftInterval = setInterval(() => {
+            console.log(200)
+            board.scrollLeft = board.scrollLeft - LeftIncrement
+          }, 10)
+          board.addEventListener('scroll', () => {
+            if (board.scrollLeft === 0) {
+              clearInterval(scrollLeftInterval)
+            }
+          })
+        }
+        else {
+          clearInterval(scrollLeftInterval)
         }
 
 
