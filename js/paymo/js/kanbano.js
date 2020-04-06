@@ -289,10 +289,12 @@
           var buttons = list.querySelectorAll(this.options.cards);
           buttons.forEach((button, card_id) => {
             if (activeButton === button) {
-              this.options.onCardMoved({
-                from: { list: listId, order: cardId },
-                to: { list: list_id, order: card_id }
-              })
+              if (cardId !== card_id) {
+                this.options.onCardMoved({
+                  from: { list: listId + 1, order: cardId + 1 },
+                  to: { list: list_id + 1, order: card_id + 1 }
+                })
+              }
             }
           });
         })
@@ -313,10 +315,12 @@
         var lists = document.querySelectorAll(this.options.lists)
         lists.forEach((list, list_id) => {
           if (activeList === list) {
-            this.options.onListMoved({
-              from: { order: listId },
-              to: { order: list_id }
-            })
+            if (listId !== list_id) {
+              this.options.onListMoved({
+                from: { order: listId + 1 },
+                to: { order: list_id + 1 }
+              })
+            }
           }
         })
         listId = undefined
