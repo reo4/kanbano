@@ -41,28 +41,33 @@
     var cloned;
     var buttonFirstShot;
     var listFirstShot;
+    var listId;
+    var cardId;
 
 
 
     container.addEventListener("mousedown", e => {
-      var buttons = document.querySelectorAll(this.options.cards);
       var lists = document.querySelectorAll(this.options.lists)
       initialX = e.clientX;
       initialY = e.clientY;
       prevX = e.clientX;
       prevY = e.clientY;
-      buttons.forEach(button => {
-        if (e.target === button || button.contains(event.target)) {
-          activeButton = button;
-          buttonFirstShot = true
-        }
-      });
-      lists.forEach(list => {
+      lists.forEach((list, list_id) => {
+        var buttons = list.querySelectorAll(this.options.cards);
         var listTitle = list.querySelector(this.options.listTitle)
-        if (event.target === listTitle || listTitle.contains(event.target)) {
+        if (e.target === listTitle || listTitle.contains(e.target)) {
           activeList = list
           listFirstShot = true
+          listId = list_id
         }
+        buttons.forEach((button, card_id) => {
+          if (e.target === button || button.contains(e.target)) {
+            activeButton = button;
+            buttonFirstShot = true
+            cardId = card_id
+            listId = list_id
+          }
+        });
       })
     });
 
@@ -88,6 +93,7 @@
           cloned.style.top = initialPositionY + 'px'
           activeButton.classList.add(this.options.activeCardClass);
           buttonFirstShot = false
+
         }
 
         offsetX = e.clientX - initialX + initialPositionX;
@@ -273,7 +279,25 @@
     });
 
     container.addEventListener("mouseup", e => {
+      if (cloned) {
+        cloned.remove();
+        cloned = undefined
+      }
       if (activeButton) {
+        var lists = document.querySelectorAll(this.options.lists)
+        lists.forEach((list, list_id) => {
+          var buttons = list.querySelectorAll(this.options.cards);
+          buttons.forEach((button, card_id) => {
+            if (activeButton === button) {
+              this.options.onCardMoved({
+                from: { list: listId, order: cardId },
+                to: { list: list_id, order: card_id }
+              })
+            }
+          });
+        })
+        listId = undefined
+        cardId = undefined
         activeButton.classList.remove(this.options.activeCardClass);
         activeButton = undefined;
         wrapper.removeAttribute('style');
@@ -283,13 +307,20 @@
         clearInterval(scrollBottomInterval)
         clearInterval(scrollRightInterval)
         clearInterval(scrollLeftInterval)
-        if (cloned) {
-          cloned.remove();
-          cloned = undefined
-        }
         buttonFirstShot = false
       }
       if (activeList) {
+        var lists = document.querySelectorAll(this.options.lists)
+        lists.forEach((list, list_id) => {
+          if (activeList === list) {
+            this.options.onListMoved({
+              from: { order: listId },
+              to: { order: list_id }
+            })
+          }
+        })
+        listId = undefined
+        cardId = undefined
         activeList.classList.remove(this.options.activeListClass);
         activeList = undefined;
         wrapper.removeAttribute('style')
