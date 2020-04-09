@@ -29,6 +29,8 @@
     var prevY = 0;
     var initialPositionX = 0;
     var initialPositionY = 0;
+    var initialRight = 0;
+    var initialBottom = 0;
     var activeButton;
     var activeList;
     var wrapper = document.body;
@@ -95,6 +97,8 @@
           cloned.appendChild(cloneButton);
           initialPositionX = activeButton.getBoundingClientRect().left;
           initialPositionY = activeButton.getBoundingClientRect().top;
+          initialRight = activeButton.getBoundingClientRect().right
+          initialBottom = activeButton.getBoundingClientRect().bottom
           cloned.style.width = activeButton.offsetWidth + 'px'
           cloned.style.height = activeButton.offsetHeight + 'px'
           cloneButton.style.cursor = 'grabbing'
@@ -155,7 +159,7 @@
 
             if (cloned.getBoundingClientRect().bottom > listContent.getBoundingClientRect().bottom - 100 &&
               listContent.scrollHeight - listContent.scrollTop !== listContent.clientHeight &&
-              e.clientY > prevY
+              cloned.getBoundingClientRect().top - initialPositionY > 50
             ) {
               var bottomDifference = parseInt((wrapper.getBoundingClientRect().bottom - cloned.getBoundingClientRect().bottom) * .05)
               var bottomIncrement = parseInt((cloned.getBoundingClientRect().bottom - listContent.getBoundingClientRect().bottom + 100) * .02)
@@ -173,9 +177,10 @@
               clearInterval(scrollBottomInterval)
             }
 
+
             if (cloned.getBoundingClientRect().top < listContent.getBoundingClientRect().top + 100 &&
               listContent.scrollTop !== 0 &&
-              e.clientY < prevY
+              initialBottom - cloned.getBoundingClientRect().bottom > 50
             ) {
               var topDifference = parseInt(cloned.getBoundingClientRect().top * .05)
               var topIncrement = parseInt((listContent.getBoundingClientRect().top + 100 - cloned.getBoundingClientRect().top) * .02)
@@ -250,7 +255,7 @@
       if (cloned) {
         if (cloned.getBoundingClientRect().right > board.getBoundingClientRect().right - 100 &&
           board.scrollWidth - board.scrollLeft !== board.clientWidth &&
-          e.clientX > prevX
+          cloned.getBoundingClientRect().left - initialPositionX > 50
         ) {
           var rightIncrement = parseInt((cloned.getBoundingClientRect().right - board.getBoundingClientRect().right + 100) * .05)
           clearInterval(scrollRightInterval)
@@ -267,9 +272,10 @@
           clearInterval(scrollRightInterval)
         }
 
+        console.log(Math.absinitialPositionX, e.clientX)
         if (cloned.getBoundingClientRect().left < board.getBoundingClientRect().left + 100 &&
           board.scrollLeft !== 0 &&
-          e.clientX < prevX
+          initialRight - cloned.getBoundingClientRect().right > 50
         ) {
           var LeftIncrement = parseInt((board.getBoundingClientRect().left + 100 - cloned.getBoundingClientRect().left) * .05)
           clearInterval(scrollLeftInterval)
