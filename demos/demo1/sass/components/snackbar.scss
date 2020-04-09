@@ -1,0 +1,69 @@
+@mixin label($background) {
+  background: $background;
+  padding: 4px 10px;
+  border-radius: 15px;
+  margin-left: 3px;
+}
+.snackbar {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 30px;
+  background-color: #0e0e0e;
+  color: white;
+  align-self: center;
+  box-shadow: 0 2px 3px -1px rgba(0,0,0,.15);
+  opacity: 0;
+  transition: all .5s;
+  z-index: 2000;
+  span {
+    display: inline-block;
+  }
+  i {
+    margin-right: 7px;
+  } 
+  .divider {
+    margin: 0 20px;
+    border: 1px solid #383838;
+    align-self: stretch;
+  }
+  .event {
+    .event-name {
+      @include label(blueviolet);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all .2s;
+      &.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+  .list-group , .card-group {
+    margin: 0 10px;
+  }
+  .list-value {
+    @include label(orange);
+  }
+  .order-value {
+    @include label(yellowgreen);
+  }
+  .close-btn {
+    margin-left: 30px;
+    button {
+      background: transparent;
+      color: white;
+      border: none;
+      cursor: pointer;
+      i {
+        margin-right: 0;
+      }
+    }
+  }
+}
+.snackbar.show {
+  bottom: 50px;
+  opacity: 1;
+}
