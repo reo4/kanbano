@@ -3,7 +3,7 @@
 }
 .dragging-active-card::before {
   content: "";
-  background: #e0e0e0;
+  background: #ececec;
   position: absolute;
   z-index: 500;
   top: 0;

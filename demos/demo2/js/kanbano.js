@@ -153,11 +153,11 @@
           if (list.contains(activeButton)) {
             var listContent = list.querySelector(this.options.listContent)
 
-            if (cloned.getBoundingClientRect().bottom > listContent.getBoundingClientRect().bottom - 75 &&
+            if (cloned.getBoundingClientRect().bottom > listContent.getBoundingClientRect().bottom - 100 &&
               listContent.scrollHeight - listContent.scrollTop !== listContent.clientHeight
             ) {
               var bottomDifference = parseInt((wrapper.getBoundingClientRect().bottom - cloned.getBoundingClientRect().bottom) * .05)
-              var bottomIncrement = parseInt((cloned.getBoundingClientRect().bottom - listContent.getBoundingClientRect().bottom + 75) * .02)
+              var bottomIncrement = parseInt((cloned.getBoundingClientRect().bottom - listContent.getBoundingClientRect().bottom + 100) * .02)
               clearInterval(scrollBottomInterval)
               scrollBottomInterval = setInterval(() => {
                 listContent.scrollTop = listContent.scrollTop + bottomIncrement
@@ -172,11 +172,11 @@
               clearInterval(scrollBottomInterval)
             }
 
-            if (cloned.getBoundingClientRect().top < listContent.getBoundingClientRect().top + 75 &&
+            if (cloned.getBoundingClientRect().top < listContent.getBoundingClientRect().top + 100 &&
               listContent.scrollTop !== 0
             ) {
               var topDifference = parseInt(cloned.getBoundingClientRect().top * .05)
-              var topIncrement = parseInt((listContent.getBoundingClientRect().top + 75 - cloned.getBoundingClientRect().top) * .02)
+              var topIncrement = parseInt((listContent.getBoundingClientRect().top + 100 - cloned.getBoundingClientRect().top) * .02)
               clearInterval(scrollTopInterval)
               scrollTopInterval = setInterval(() => {
                 listContent.scrollTop = listContent.scrollTop - topIncrement
