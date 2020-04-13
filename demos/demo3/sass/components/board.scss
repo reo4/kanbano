@@ -1,0 +1,38 @@
+.board{
+  display: flex;
+  height: 100%;
+}
+.list {
+  max-width: 320px;
+  min-width: 320px;
+  height: 100%;
+  .list-title{
+    padding: 17px 0;
+    padding-left: 25px;
+    color: white;
+    background-color: #30BFBF;
+    font-size: 21px;
+    i {
+      margin-right: 10px;
+    }
+    &.list-cyan {
+      background-color: #8F7EE6;
+    }
+    &.list-grey {
+      background-color: #98AAB3;
+    }
+    &.list-light-blue{
+      background-color: #00AAFF;
+    }
+  }
+  .list-content {
+    height: 100%;
+    padding: 0 10px;
+    padding-top: 10px;
+  }
+}
+.card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+}
