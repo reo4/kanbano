@@ -15,10 +15,24 @@ html {
       display: flex;
       flex-direction: column;
       box-sizing: border-box;
-      padding-bottom: 10px;
+      padding-bottom: 3px;
     }
   }
   h1 , h2 , h3 , h4 , h5 , h6 {
     margin: 0;
   }
+}
+
+::-webkit-scrollbar {
+  height: 10px; 
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #d4d4d4;
+  border-radius: 10px;
+  margin: 0px 20px;
+}
+::-webkit-scrollbar-thumb {
+  background: #585858;
+  border-radius: 10px;
 }

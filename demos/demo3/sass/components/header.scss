@@ -1,5 +1,9 @@
 .header {
   display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.19) 0 2px 5px 0;
   padding: 20px;

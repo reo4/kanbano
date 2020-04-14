@@ -1,0 +1,14 @@
+.dragging-active-card {
+  opacity: 0;
+}
+.cloned-card {
+  transform: rotate(3deg);
+  border: 2px solid rgb(0, 170, 255);
+  border-radius: 15px;
+}
+.dragging-active-list {
+  opacity: 0;
+}
+.cloned-list .list{
+  height: 100%;
+}
