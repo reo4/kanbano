@@ -25,6 +25,7 @@
 
   Kanbano.prototype.init = function () {
 
+    var self = this
     var initialX, initialY, offsetX, offsetY;
     var prevX = 0;
     var prevY = 0;
@@ -36,7 +37,7 @@
     var activeList;
     var wrapper = document.body;
     var container = window;
-    var board = document.querySelector(this.options.board);
+    var board = document.querySelector(self.options.board);
     var scrollBottomInterval;
     var scrollTopInterval;
     var scrollRightInterval;
@@ -48,30 +49,30 @@
     var cardId;
     var containingList;
 
-    document.querySelectorAll(this.options.cards).forEach(card => {
+    document.querySelectorAll(self.options.cards).forEach(function (card) {
       card.style.cursor = 'grab'
     })
 
-    document.querySelectorAll(this.options.lists).forEach(list => {
-      var listTitle = list.querySelector(this.options.listTitle)
+    document.querySelectorAll(self.options.lists).forEach(function (list) {
+      var listTitle = list.querySelector(self.options.listTitle)
       listTitle.style.cursor = 'grab'
     })
 
-    container.addEventListener("mousedown", e => {
-      var lists = document.querySelectorAll(this.options.lists)
+    container.addEventListener("mousedown", function (e) {
+      var lists = document.querySelectorAll(self.options.lists)
       initialX = e.clientX;
       initialY = e.clientY;
       prevX = e.clientX;
       prevY = e.clientY;
-      lists.forEach((list, list_id) => {
-        var buttons = list.querySelectorAll(this.options.cards);
-        var listTitle = list.querySelector(this.options.listTitle)
+      lists.forEach(function (list, list_id) {
+        var buttons = list.querySelectorAll(self.options.cards);
+        var listTitle = list.querySelector(self.options.listTitle)
         if ((e.target === listTitle || listTitle.contains(e.target))) {
           activeList = list
           listFirstShot = true
           listId = list_id
         }
-        buttons.forEach((button, card_id) => {
+        buttons.forEach(function (button, card_id) {
           if ((e.target === button || button.contains(e.target))) {
             activeButton = button;
             containingList = list;
@@ -83,7 +84,7 @@
       })
     });
 
-    container.addEventListener("mousemove", e => {
+    container.addEventListener("mousemove", function (e) {
       e.preventDefault();
       if (activeButton) {
         if (buttonFirstShot) {
@@ -91,7 +92,7 @@
           wrapper.style.position = "relative";
           wrapper.style.overflow = "hidden"
           cloned = document.createElement("div");
-          cloned.classList.add(this.options.cloneCardClass);
+          cloned.classList.add(self.options.cloneCardClass);
           cloned.style.position = 'absolute'
           cloned.style.zIndex = '1000'
           wrapper.prepend(cloned);
@@ -106,7 +107,7 @@
           cloned.firstChild.style.margin = 0 + 'px'
           cloned.style.left = initialPositionX + 'px'
           cloned.style.top = initialPositionY + 'px'
-          activeButton.classList.add(this.options.activeCardClass);
+          activeButton.classList.add(self.options.activeCardClass);
           buttonFirstShot = false
 
         }
@@ -114,20 +115,20 @@
         offsetY = e.clientY - initialY + initialPositionY;
         var centerX = cloned.getBoundingClientRect().top + cloned.offsetHeight / 2
         var centerY = cloned.getBoundingClientRect().left + cloned.offsetWidth / 2
-        var lists = document.querySelectorAll(this.options.lists);
-        if (!activeButton.classList.contains(this.options.lockClass)) {
+        var lists = document.querySelectorAll(self.options.lists);
+        if (!activeButton.classList.contains(self.options.lockClass)) {
           cloned.style.left = offsetX + 'px'
         }
         cloned.style.top = offsetY + 'px'
 
-        lists.forEach(list => {
+        lists.forEach(function (list) {
           var listLeft = list.getBoundingClientRect().left
           var listRight = list.getBoundingClientRect().right
           if (centerY > listLeft && centerY < listRight) {
-            var cards = list.querySelectorAll(this.options.cards)
+            var cards = list.querySelectorAll(self.options.cards)
             if (cards.length) {
               var centers = []
-              cards.forEach(button => {
+              cards.forEach(function (button) {
                 var buttonCenterX = button.getBoundingClientRect().top + cloned.offsetHeight / 2
                 centers.push(Math.abs(centerX - buttonCenterX))
               })
@@ -149,16 +150,16 @@
               }
             }
             else {
-              list.querySelector(this.options.listContent).appendChild(activeButton)
+              list.querySelector(self.options.listContent).appendChild(activeButton)
             }
           }
         })
 
         // scrolling
 
-        lists.forEach(list => {
+        lists.forEach(function (list) {
           if (list.contains(activeButton)) {
-            var listContent = list.querySelector(this.options.listContent)
+            var listContent = list.querySelector(self.options.listContent)
 
             if (cloned.getBoundingClientRect().bottom > listContent.getBoundingClientRect().bottom - 100 &&
               listContent.scrollHeight - listContent.scrollTop !== listContent.clientHeight &&
@@ -167,10 +168,10 @@
               var bottomDifference = parseInt((wrapper.getBoundingClientRect().bottom - cloned.getBoundingClientRect().bottom) * .05)
               var bottomIncrement = parseInt((cloned.getBoundingClientRect().bottom - listContent.getBoundingClientRect().bottom + 100) * .02)
               clearInterval(scrollBottomInterval)
-              scrollBottomInterval = setInterval(() => {
+              scrollBottomInterval = setInterval(function () {
                 listContent.scrollTop = listContent.scrollTop + bottomIncrement
               }, bottomDifference)
-              listContent.addEventListener('scroll', () => {
+              listContent.addEventListener('scroll', function () {
                 if (listContent.scrollHeight - listContent.scrollTop === listContent.clientHeight) {
                   clearInterval(scrollBottomInterval)
                 }
@@ -188,10 +189,10 @@
               var topDifference = parseInt(cloned.getBoundingClientRect().top * .05)
               var topIncrement = parseInt((listContent.getBoundingClientRect().top + 100 - cloned.getBoundingClientRect().top) * .02)
               clearInterval(scrollTopInterval)
-              scrollTopInterval = setInterval(() => {
+              scrollTopInterval = setInterval(function () {
                 listContent.scrollTop = listContent.scrollTop - topIncrement
               }, topDifference)
-              listContent.addEventListener('scroll', () => {
+              listContent.addEventListener('scroll', function () {
                 if (listContent.scrollTop === 0) {
                   clearInterval(scrollTopInterval)
                 }
@@ -209,7 +210,7 @@
           wrapper.style.position = "relative";
           wrapper.style.overflow = "hidden"
           cloned = document.createElement("div");
-          cloned.classList.add(this.options.cloneListClass);
+          cloned.classList.add(self.options.cloneListClass);
           cloned.style.position = 'absolute'
           cloned.style.zIndex = '1000'
           wrapper.prepend(cloned);
@@ -220,24 +221,24 @@
           initialBottom = activeList.getBoundingClientRect().bottom
           cloned.style.width = activeList.offsetWidth + 'px'
           cloned.style.height = activeList.offsetHeight + 'px'
-          cloneList.querySelector(this.options.listTitle).style.cursor = 'grabbing'
+          cloneList.querySelector(self.options.listTitle).style.cursor = 'grabbing'
           cloned.style.left = initialPositionX + 'px'
           cloned.style.top = initialPositionY + 'px'
-          activeList.classList.add(this.options.activeListClass);
+          activeList.classList.add(self.options.activeListClass);
           listFirstShot = false
         }
         offsetX = e.clientX - initialX + initialPositionX;
         offsetY = e.clientY - initialY + initialPositionY;
         var centerX = cloned.getBoundingClientRect().top + cloned.offsetHeight / 2
         var centerY = cloned.getBoundingClientRect().left + cloned.offsetWidth / 2
-        var lists = document.querySelectorAll(this.options.lists);
+        var lists = document.querySelectorAll(self.options.lists);
         var newLists = []
         cloned.style.left = offsetX + 'px'
-        if (!activeList.classList.contains(this.options.lockClass)) {
+        if (!activeList.classList.contains(self.options.lockClass)) {
           cloned.style.top = offsetY + 'px'
         }
         var centers = []
-        lists.forEach(list => {
+        lists.forEach(function (list) {
           if (list !== activeList && list !== cloned.querySelector('.list')) {
             newLists.push(list)
             var center = list.getBoundingClientRect().left + list.offsetWidth / 2
@@ -266,10 +267,10 @@
         ) {
           var rightIncrement = parseInt((cloned.getBoundingClientRect().right - board.getBoundingClientRect().right + 100) * .05)
           clearInterval(scrollRightInterval)
-          scrollRightInterval = setInterval(() => {
+          scrollRightInterval = setInterval(function () {
             board.scrollLeft = board.scrollLeft + rightIncrement
           }, 10)
-          board.addEventListener('scroll', () => {
+          board.addEventListener('scroll', function () {
             if (board.scrollWidth - board.scrollLeft === board.clientWidth) {
               clearInterval(scrollRightInterval)
             }
@@ -285,10 +286,10 @@
         ) {
           var LeftIncrement = parseInt((board.getBoundingClientRect().left + 100 - cloned.getBoundingClientRect().left) * .05)
           clearInterval(scrollLeftInterval)
-          scrollLeftInterval = setInterval(() => {
+          scrollLeftInterval = setInterval(function () {
             board.scrollLeft = board.scrollLeft - LeftIncrement
           }, 10)
-          board.addEventListener('scroll', () => {
+          board.addEventListener('scroll', function () {
             if (board.scrollLeft === 0) {
               clearInterval(scrollLeftInterval)
             }
@@ -303,20 +304,20 @@
       prevY = e.clientY;
     });
 
-    container.addEventListener("mouseup", e => {
+    container.addEventListener("mouseup", function (e) {
       if (cloned) {
         cloned.remove();
         cloned = undefined
       }
       if (activeButton) {
-        var lists = document.querySelectorAll(this.options.lists)
-        lists.forEach((list, list_id) => {
-          var buttons = list.querySelectorAll(this.options.cards);
-          buttons.forEach((button, card_id) => {
+        var lists = document.querySelectorAll(self.options.lists)
+        lists.forEach(function (list, list_id) {
+          var buttons = list.querySelectorAll(self.options.cards);
+          buttons.forEach(function (button, card_id) {
             if (activeButton === button) {
               if (cardId !== card_id || list !== containingList) {
-                if (this.options.onCardMoved) {
-                  this.options.onCardMoved({
+                if (self.options.onCardMoved) {
+                  self.options.onCardMoved({
                     from: { list: listId + 1, order: cardId + 1 },
                     to: { list: list_id + 1, order: card_id + 1 }
                   })
@@ -328,7 +329,7 @@
         listId = undefined
         cardId = undefined
         containingList = undefined
-        activeButton.classList.remove(this.options.activeCardClass);
+        activeButton.classList.remove(self.options.activeCardClass);
         activeButton = undefined;
         wrapper.removeAttribute('style');
         initialPositionX = 0;
@@ -342,12 +343,12 @@
         buttonFirstShot = false
       }
       if (activeList) {
-        var lists = document.querySelectorAll(this.options.lists)
-        lists.forEach((list, list_id) => {
+        var lists = document.querySelectorAll(self.options.lists)
+        lists.forEach(function (list, list_id) {
           if (activeList === list) {
             if (listId !== list_id) {
-              if (this.options.onListMoved) {
-                this.options.onListMoved({
+              if (self.options.onListMoved) {
+                self.options.onListMoved({
                   from: { order: listId + 1 },
                   to: { order: list_id + 1 }
                 })
@@ -357,7 +358,7 @@
         })
         listId = undefined
         cardId = undefined
-        activeList.classList.remove(this.options.activeListClass);
+        activeList.classList.remove(self.options.activeListClass);
         activeList = undefined;
         wrapper.removeAttribute('style')
         initialPositionX = 0;
