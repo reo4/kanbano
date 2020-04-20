@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1087" height="710" viewBox="0 0 1087 710">
+  <g id="Group_7" data-name="Group 7" transform="translate(-387 -261)">
+    <rect id="Rectangle_4" data-name="Rectangle 4" width="1087" height="710" rx="26" transform="translate(387 261)" fill="#f5f5f5"/>
+    <text id="_.board" data-name=".board" transform="translate(428 308)" font-size="24" font-family="Lato-Bold, Lato" font-weight="700"><tspan x="0" y="0">.board</tspan></text>
+    <g id="Group_6" data-name="Group 6" transform="translate(-179.487)">
+      <g id="Group_3" data-name="Group 3" transform="translate(695 382.395)">
+        <rect id="Rectangle_6" data-name="Rectangle 6" width="238" height="533" rx="25" transform="translate(0.487 -0.395)" fill="#fff"/>
+        <rect id="Rectangle_8" data-name="Rectangle 8" width="137" height="65" rx="25" transform="translate(50.487 50.605)" fill="#f6f6f6"/>
+        <rect id="Rectangle_9" data-name="Rectangle 9" width="137" height="66" rx="25" transform="translate(50.487 158.605)" fill="#f6f6f6"/>
+        <rect id="Rectangle_10" data-name="Rectangle 10" width="137" height="65" rx="25" transform="translate(50.487 267.605)" fill="#f6f6f6"/>
+      </g>
+      <g id="Group_4" data-name="Group 4" transform="translate(988.148 333)">
+        <rect id="Rectangle_6-2" data-name="Rectangle 6" width="238" height="533" rx="25" transform="translate(0.34 49)" fill="#fff"/>
+        <rect id="Rectangle_8-2" data-name="Rectangle 8" width="138" height="66" rx="25" transform="translate(50.34 175)" fill="#f6f6f6"/>
+        <rect id="Rectangle_9-2" data-name="Rectangle 9" width="138" height="66" rx="25" transform="translate(50.34 283)" fill="#f6f6f6"/>
+        <rect id="Rectangle_10-2" data-name="Rectangle 10" width="138" height="65" rx="25" transform="translate(50.34 392)" fill="#f6f6f6"/>
+        <text id="_.list" data-name=".list" transform="translate(7.34 25)" font-size="25" font-family="Lato-Bold, Lato" font-weight="700"><tspan x="0" y="0">.list</tspan></text>
+        <text id="_.card" data-name=".card" transform="translate(86.34 217)" font-size="25" font-family="Lato-Bold, Lato" font-weight="700"><tspan x="0" y="0">.card</tspan></text>
+        <path id="Intersection_1" data-name="Intersection 1" d="M0,84V25A25,25,0,0,1,25,0H213a25,25,0,0,1,25,25V84Z" transform="translate(0.34 49)" fill="#ebebeb"/>
+        <text id="_.list-title" data-name=".list-title" transform="translate(61.34 106)" font-size="25" font-family="Lato-Bold, Lato" font-weight="700"><tspan x="0" y="0">.list-title</tspan></text>
+        <text id="_.list-content" data-name=".list-content" transform="translate(49.34 552)" font-size="25" font-family="Lato-Bold, Lato" font-weight="700"><tspan x="0" y="0">.list-content</tspan></text>
+      </g>
+      <g id="Group_5" data-name="Group 5" transform="translate(1285.59 382.395)">
+        <rect id="Rectangle_6-3" data-name="Rectangle 6" width="238" height="533" rx="25" transform="translate(-0.103 -0.395)" fill="#fff"/>
+        <rect id="Rectangle_8-3" data-name="Rectangle 8" width="137" height="65" rx="25" transform="translate(50.897 50.605)" fill="#f6f6f6"/>
+        <rect id="Rectangle_9-3" data-name="Rectangle 9" width="137" height="66" rx="25" transform="translate(50.897 158.605)" fill="#f6f6f6"/>
+        <rect id="Rectangle_10-3" data-name="Rectangle 10" width="137" height="65" rx="25" transform="translate(50.897 267.605)" fill="#f6f6f6"/>
+      </g>
+    </g>
+  </g>
+</svg>

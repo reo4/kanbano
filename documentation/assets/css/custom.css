@@ -1,0 +1,8 @@
+.template-image{
+  margin: 30px 0;
+  margin-bottom: 15px;
+}
+.template-image img {
+  width: 100%;
+  max-width: 700px;
+}
