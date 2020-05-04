@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="723.411" height="158" viewBox="0 0 723.411 158">
+  <g id="Group_1" data-name="Group 1" transform="translate(-622.589 -461)">
+    <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(738.949 484.404) rotate(21)" stroke="#707070" stroke-width="1">
+      <rect width="42.489" height="112.587" rx="21.244" stroke="none"/>
+      <rect x="0.5" y="0.5" width="41.489" height="111.587" rx="20.744" fill="none"/>
+    </g>
+    <g id="Rectangle_3" data-name="Rectangle 3" transform="translate(676.949 484.404) rotate(21)" stroke="#707070" stroke-width="1">
+      <rect width="42.489" height="112.587" rx="21.244" stroke="none"/>
+      <rect x="0.5" y="0.5" width="41.489" height="111.587" rx="20.744" fill="none"/>
+    </g>
+    <text id="Kanbano" transform="translate(803 591)" font-size="132" font-family="Lato-Black, Lato" font-weight="800"><tspan x="0" y="0">Kanbano</tspan></text>
+    <rect id="Rectangle_4" data-name="Rectangle 4" width="172" height="9" transform="translate(622.589 561.082) rotate(-14)" fill="#fff"/>
+  </g>
+</svg>
