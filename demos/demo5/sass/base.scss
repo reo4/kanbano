@@ -1,0 +1,49 @@
+$background-color: #15151a;
+$font-size: 16px;
+html {
+  height: 100%;
+  font-size: $font-size;
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: $background-color;
+    font-family: 'Varela Round', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    .wrapper {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      padding-bottom: 10px;
+    }
+  }
+  h1 , h2 , h3 , h4 , h5 , h6 {
+    margin: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  height: 8px; 
+  width: 8px;
+}
+::-webkit-scrollbar-track:horizontal {
+  background: rgb(206, 206, 206);
+  border-radius: 4px;
+  margin: 0px 20px;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  background: rgb(141, 141, 141);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track:vertical {
+  background: rgb(206, 206, 206);
+  border-radius: 4px;
+  margin: 0px 20px;
+}
+::-webkit-scrollbar-thumb:vertical {
+  background: rgb(141, 141, 141);
+  border-radius: 4px;
+}
