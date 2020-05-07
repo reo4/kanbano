@@ -6,6 +6,7 @@ $card-background: #323237;
   color: #484848;
   align-items: start;
   overflow-x: auto;
+  overflow-y: hidden;
   flex-grow: 1;
   &::after {
     content: "";

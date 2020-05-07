@@ -3,14 +3,20 @@
 }
 .dragging-active-card::before {
   content: "";
-  background: #e0e0e0;
+  background: repeating-linear-gradient(
+  135deg,
+  #2c2c31,
+  #2c2c31 20px,
+  #222227 20px,
+  #222227 40px
+  );
   position: absolute;
   z-index: 500;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 .dragging-active-card {
   box-shadow: none !important;
@@ -18,11 +24,24 @@
 .cloned-card {
   transform: rotate(3deg);
 }
-.dragging-active-list {
+.dragging-active-list .list-title {
   position: relative;
+  background: repeating-linear-gradient(
+  135deg,
+  #2c2c31,
+  #2c2c31 20px,
+  #222227 20px,
+  #222227 40px
+  );
 }
-.dragging-active-list::before {
-  background-color:#026dab;
+.dragging-active-list .list-title::before {
+  background: repeating-linear-gradient(
+  135deg,
+  #2c2c31,
+  #2c2c31 20px,
+  #222227 20px,
+  #222227 40px
+  );
   content: "";
   position: absolute;
   z-index: 500;
@@ -30,11 +49,34 @@
   bottom: 0;
   left: 0;
   right: 0;
-  border-radius: 5px;
+  border-radius: 10px;
 }
-.dragging-active-list {
-  border-radius: 5px !important;
-  background-color:#026dab !important;
+.dragging-active-list .list-content {
+  position: relative;
+  background: repeating-linear-gradient(
+  135deg,
+  #2c2c31,
+  #2c2c31 20px,
+  #222227 20px,
+  #222227 40px
+  );
+}
+.dragging-active-list .list-content::before {
+  background: repeating-linear-gradient(
+  135deg,
+  #2c2c31,
+  #2c2c31 20px,
+  #222227 20px,
+  #222227 40px
+  );
+  content: "";
+  position: absolute;
+  z-index: 500;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 10px;
 }
 .cloned-list {
   transform: rotate(2deg);
