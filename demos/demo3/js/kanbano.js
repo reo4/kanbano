@@ -247,13 +247,13 @@
         })
         var index = centers.indexOf(Math.min.apply(Math, centers))
         var list = newLists[index]
-        if (centerY > list.getBoundingClientRect().left && centerY < list.getBoundingClientRect().left + list.offsetWidth / 2) {
+        if (list && centerY > list.getBoundingClientRect().left && centerY < list.getBoundingClientRect().left + list.offsetWidth / 2) {
           board.insertBefore(
             activeList,
             list.nextSibling
           )
         }
-        else if (centerY < list.getBoundingClientRect().right && centerY > list.getBoundingClientRect().right - list.offsetWidth / 2) {
+        else if (list && centerY < list.getBoundingClientRect().right && centerY > list.getBoundingClientRect().right - list.offsetWidth / 2) {
           board.insertBefore(
             activeList,
             list
