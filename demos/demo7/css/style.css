@@ -1,1 +1,183 @@
-html{height:100%;font-size:15px}html body{height:100%;margin:0;padding:0;background-color:#fff;font-family:"Varela Round",sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}html body .wrapper{height:100%;display:flex;flex-direction:column;box-sizing:border-box;padding-right:10px}html h1,html h2,html h3,html h4,html h5,html h6{margin:0}::-webkit-scrollbar{height:8px;width:8px}::-webkit-scrollbar-track{background:#d8dbe2;border-radius:4px;margin:20px}::-webkit-scrollbar-thumb{background:#bfc2cd;border-radius:4px}.header{padding:20px;color:#2f3039;border-bottom:1px solid #f1f4f6;text-align:center;font-size:26px;font-weight:bold}.board{display:flex;flex-direction:column;padding-top:20px;color:#484848;align-items:start;overflow-y:auto;flex-grow:1;padding:20px 30px}.list{background-color:#f5f7fc;border-radius:15px;margin-bottom:15px;padding-bottom:20px;width:100%}.list .list-title{position:relative;padding:14px 16px;color:#838594;display:flex;justify-content:space-between;align-items:center}.list .list-title .left{display:flex;align-items:center}.list .list-title .left .icon{width:30px;height:30px;display:flex;justify-content:center;align-items:center;background-color:#4e9aff;border-radius:100%;color:#fff;margin-right:9px}.list .list-content{padding:5px 14px;padding-bottom:20px;display:flex;overflow-x:auto}.list .list-content::after{content:"";padding:10px}.card{background-color:#fff;margin-left:15px;border-radius:10px;padding:20px;box-shadow:0 2px 3px -1px rgba(0,0,0,.15);min-width:250px}.card .card-media{display:flex}.card .card-media .avatar{border-radius:100%;width:50px;margin-right:15px}.card .card-media .media-content .name{color:#33343d}.card .card-media .media-content .description{color:#9496a3;margin-top:4px}.card .card-progress{display:flex;align-items:center;width:73%;margin-left:auto}.card .card-progress .progress-line{position:relative;background-color:#e0e5eb;padding:3px 0px;flex-grow:1;margin-right:10px;border-radius:24px}.card .card-progress .progress-line::before{content:"";background-color:#4e9aff;padding:3px 0px;position:absolute;left:0;right:0;top:0;border-radius:24px}.card .card-progress .progress-line.w-0::before{width:0}.card .card-progress .progress-line.w-10::before{width:10%}.card .card-progress .progress-line.w-20::before{width:20%}.card .card-progress .progress-line.w-30::before{width:33.3333%}.card .card-progress .progress-line.w-50::before{width:50%}.card .card-progress .progress-line.w-60::before{width:60%}.card .card-progress .progress-line.w-70::before{width:70%}.card .card-progress .progress-line.w-100::before{width:100%}/*# sourceMappingURL=style.css.map */
+html {
+  height: 100%;
+  font-size: 15px;
+}
+html body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  font-family: "Varela Round", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html body .wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-right: 10px;
+}
+html h1, html h2, html h3, html h4, html h5, html h6 {
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #D8DBE2;
+  border-radius: 4px;
+  margin: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #BFC2CD;
+  border-radius: 4px;
+}
+
+.header {
+  padding: 20px;
+  color: #2f3039;
+  border-bottom: 1px solid #f1f4f6;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  color: #484848;
+  align-items: start;
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 20px 30px;
+}
+
+.list {
+  background-color: #f5f7fc;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+.list .list-title {
+  position: relative;
+  padding: 14px 16px;
+  color: #838594;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list .list-title .left {
+  display: flex;
+  align-items: center;
+}
+.list .list-title .left .icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4e9aff;
+  border-radius: 100%;
+  color: white;
+  margin-right: 9px;
+}
+.list .list-content {
+  padding: 5px 14px;
+  padding-bottom: 20px;
+  display: flex;
+  overflow-x: auto;
+}
+.list .list-content::after {
+  content: "";
+  padding: 10px;
+}
+
+.card {
+  background-color: #ffffff;
+  margin-left: 15px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15);
+  min-width: 250px;
+}
+.card .card-media {
+  display: flex;
+}
+.card .card-media .avatar {
+  border-radius: 100%;
+  width: 50px;
+  margin-right: 15px;
+}
+.card .card-media .media-content .name {
+  color: #33343d;
+}
+.card .card-media .media-content .description {
+  color: #9496a3;
+  margin-top: 4px;
+}
+.card .card-progress {
+  display: flex;
+  align-items: center;
+  width: 73%;
+  margin-left: auto;
+}
+.card .card-progress .progress-line {
+  position: relative;
+  background-color: #e0e5eb;
+  padding: 3px 0px;
+  flex-grow: 1;
+  margin-right: 10px;
+  border-radius: 24px;
+}
+.card .card-progress .progress-line::before {
+  content: "";
+  background-color: #4e9aff;
+  padding: 3px 0px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  border-radius: 24px;
+}
+.card .card-progress .progress-line.w-0::before {
+  width: 0;
+}
+.card .card-progress .progress-line.w-10::before {
+  width: 10%;
+}
+.card .card-progress .progress-line.w-20::before {
+  width: 20%;
+}
+.card .card-progress .progress-line.w-30::before {
+  width: 33.3333%;
+}
+.card .card-progress .progress-line.w-40::before {
+  width: 40%;
+}
+.card .card-progress .progress-line.w-50::before {
+  width: 50%;
+}
+.card .card-progress .progress-line.w-60::before {
+  width: 60%;
+}
+.card .card-progress .progress-line.w-70::before {
+  width: 70%;
+}
+.card .card-progress .progress-line.w-80::before {
+  width: 80%;
+}
+.card .card-progress .progress-line.w-90::before {
+  width: 90%;
+}
+.card .card-progress .progress-line.w-100::before {
+  width: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */

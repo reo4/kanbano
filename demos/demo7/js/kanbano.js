@@ -76,6 +76,7 @@
         prevY = e.touches[0].clientY;
       }
       else {
+        e.preventDefault()
         initialX = e.clientX;
         initialY = e.clientY;
         prevX = e.clientX;
@@ -132,6 +133,7 @@
           offsetY = e.touches[0].clientY - initialY + initialPositionY;
         }
         else {
+          e.preventDefault()
           offsetX = e.clientX - initialX + initialPositionX;
           offsetY = e.clientY - initialY + initialPositionY;
         }
