@@ -59,12 +59,28 @@
       listTitle.style.cursor = 'grab'
     })
 
-    container.addEventListener("mousedown", function (e) {
+    container.addEventListener("touchstart", dragStart, false);
+    container.addEventListener("touchmove", drag, false);
+    container.addEventListener("touchend", dragEnd, false);
+
+    container.addEventListener("mousedown" , dragStart , false);
+    container.addEventListener("mousemove" , drag , false);
+    container.addEventListener("mouseup" , dragEnd , false);
+
+    function dragStart (e) {
       var lists = document.querySelectorAll(self.options.lists)
-      initialX = e.clientX;
-      initialY = e.clientY;
-      prevX = e.clientX;
-      prevY = e.clientY;
+      if(e.type === "touchstart"){
+        initialX = e.touches[0].clientX;
+        initialY = e.touches[0].clientY;
+        prevX = e.touches[0].clientX;
+        prevY = e.touches[0].clientY;
+      }
+      else {
+        initialX = e.clientX;
+        initialY = e.clientY;
+        prevX = e.clientX;
+        prevY = e.clientY;
+      }
       lists.forEach(function (list, list_id) {
         var buttons = list.querySelectorAll(self.options.cards);
         var listTitle = list.querySelector(self.options.listTitle)
@@ -83,10 +99,9 @@
           }
         });
       })
-    });
+    }
 
-    container.addEventListener("mousemove", function (e) {
-      e.preventDefault();
+    function drag (e) {
       if (activeButton) {
         if (buttonFirstShot) {
           var cloneButton = activeButton.cloneNode(true);
@@ -112,8 +127,14 @@
           buttonFirstShot = false
 
         }
-        offsetX = e.clientX - initialX + initialPositionX;
-        offsetY = e.clientY - initialY + initialPositionY;
+        if(e.type === "touchmove"){
+          offsetX = e.touches[0].clientX - initialX + initialPositionX;
+          offsetY = e.touches[0].clientY - initialY + initialPositionY;
+        }
+        else {
+          offsetX = e.clientX - initialX + initialPositionX;
+          offsetY = e.clientY - initialY + initialPositionY;
+        }
         var centerX = cloned.getBoundingClientRect().top + cloned.offsetHeight / 2
         var centerY = cloned.getBoundingClientRect().left + cloned.offsetWidth / 2
         var lists = document.querySelectorAll(self.options.lists);
@@ -309,8 +330,14 @@
           activeList.classList.add(self.options.activeListClass);
           listFirstShot = false
         }
-        offsetX = e.clientX - initialX + initialPositionX;
-        offsetY = e.clientY - initialY + initialPositionY;
+        if(e.type === "touchmove"){
+          offsetX = e.touches[0].clientX - initialX + initialPositionX;
+          offsetY = e.touches[0].clientY - initialY + initialPositionY;
+        }
+        else {
+          offsetX = e.clientX - initialX + initialPositionX;
+          offsetY = e.clientY - initialY + initialPositionY;
+        }
         var centerX = cloned.getBoundingClientRect().top + cloned.offsetHeight / 2
         var centerY = cloned.getBoundingClientRect().left + cloned.offsetWidth / 2
         var lists = document.querySelectorAll(self.options.lists);
@@ -453,11 +480,17 @@
         }
       }
 
-      prevX = e.clientX;
-      prevY = e.clientY;
-    });
+      if(e.type === "touchmove"){
+        prevX = e.touches[0].clientX;
+        prevY = e.touches[0].clientY;
+      }
+      else {
+        prevX = e.clientX;
+        prevY = e.clientY;
+      }
+    }
 
-    container.addEventListener("mouseup", function (e) {
+    function dragEnd(e) {
       if (cloned) {
         cloned.remove();
         cloned = undefined
@@ -526,8 +559,8 @@
         }
         listFirstShot = false
       }
-    });
-
+    }
+  
   }
 
   function extendDefaults(source, properties) {
