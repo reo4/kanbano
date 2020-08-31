@@ -10,19 +10,43 @@
     padding: 10px;
   }
 }
-
 .list {
   background-color: #f4f5f7;
-  border-radius: 3px;
+  border-radius: 5px;
   margin-left: 20px;
   padding-bottom: 30px;
-  max-width: 300px;
-  min-width: 300px;
+  max-width: 350px;
+  min-width: 350px;
   padding-right: 5px;
+  &.yellow {
+    background-color: #ffe380;
+    .due-date {
+      background-color: #ffab00;
+    }
+  }
+  &.green {
+    background-color: #80ffd9;
+  }
+  &.blue {
+    background-color: #80cdff;
+  }
   .list-title {
-    padding: 14px 16px;
+    padding: 30px 16px;
     padding-right: 36px;
-    font-weight: bold;
+    color: #5f6d85;
+    .title {
+      margin-right: 7px;
+      font-weight: bold;
+    }
+    .number-of-tasks {
+      font-weight: bold;
+      margin-right: 12px;
+    }
+    .due-date {
+      color: white;
+      padding: 3px 12px;
+      border-radius: 5px;
+    }
   }
   .list-content {
     padding: 0 14px;
@@ -31,11 +55,60 @@
     overflow-y: auto;
   }
 }
-
 .card {
   background-color: white;
+  color: #1b2e50;
   margin-bottom: 8px;
-  border-radius: 3px;
-  box-shadow: 0 1px 0 rgba(9,30,66,.25);
-
+  border-radius: 5px;
+  box-shadow: 0 2px 2px #d1d1d1;
+  padding: 12px;
+  .card-title {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+  .card-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .id {
+      color: #6c798f;
+      margin-right: 10px;
+    }
+    .avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      &.orange {
+        background-color: #ff5630;
+      }
+      &.blue {
+        background-color: #2684ff;
+      }
+      &.avatar-1 {
+        background-image: url('../img/avatar-1.jpg');
+        background-size: cover;
+      }
+      &.avatar-2 {
+        background-image: url('../img/avatar-2.jpg');
+        background-size: cover;
+      }
+      &.avatar-3 {
+        background-image: url('../img/avatar-3.jfif');
+        background-size: cover;
+      }
+      &.avatar-4 {
+        background-image: url('../img/avatar-4.png');
+        background-size: cover;
+      }
+      &.avatar-5 {
+        background-image: url('../img/avatar-5.png');
+        background-size: cover;
+      }
+    }
+  }
 }

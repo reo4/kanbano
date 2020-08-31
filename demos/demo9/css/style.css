@@ -21,7 +21,6 @@ html body .wrapper {
 html h1, html h2, html h3, html h4, html h5, html h6 {
   margin: 0;
 }
-
 ::-webkit-scrollbar {
   height: 12px;
   width: 8px;
@@ -55,6 +54,7 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
   justify-content: center;
   font-size: 16px;
   color: #213454;
+  padding-bottom: 0;
 }
 
 .board {
@@ -72,17 +72,42 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
 
 .list {
   background-color: #f4f5f7;
-  border-radius: 3px;
+  border-radius: 5px;
   margin-left: 20px;
   padding-bottom: 30px;
-  max-width: 300px;
-  min-width: 300px;
+  max-width: 350px;
+  min-width: 350px;
   padding-right: 5px;
 }
+.list.yellow {
+  background-color: #ffe380;
+}
+.list.yellow .due-date {
+  background-color: #ffab00;
+}
+.list.green {
+  background-color: #80ffd9;
+}
+.list.blue {
+  background-color: #80cdff;
+}
 .list .list-title {
-  padding: 14px 16px;
+  padding: 30px 16px;
   padding-right: 36px;
+  color: #5f6d85;
+}
+.list .list-title .title {
+  margin-right: 7px;
   font-weight: bold;
+}
+.list .list-title .number-of-tasks {
+  font-weight: bold;
+  margin-right: 12px;
+}
+.list .list-title .due-date {
+  color: white;
+  padding: 3px 12px;
+  border-radius: 5px;
 }
 .list .list-content {
   padding: 0 14px;
@@ -93,9 +118,60 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
 
 .card {
   background-color: white;
+  color: #1b2e50;
   margin-bottom: 8px;
-  border-radius: 3px;
-  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+  border-radius: 5px;
+  box-shadow: 0 2px 2px #d1d1d1;
+  padding: 12px;
+}
+.card .card-title {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+.card .card-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.card .card-footer .id {
+  color: #6c798f;
+  margin-right: 10px;
+}
+.card .card-footer .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.card .card-footer .avatar.orange {
+  background-color: #ff5630;
+}
+.card .card-footer .avatar.blue {
+  background-color: #2684ff;
+}
+.card .card-footer .avatar.avatar-1 {
+  background-image: url("../img/avatar-1.jpg");
+  background-size: cover;
+}
+.card .card-footer .avatar.avatar-2 {
+  background-image: url("../img/avatar-2.jpg");
+  background-size: cover;
+}
+.card .card-footer .avatar.avatar-3 {
+  background-image: url("../img/avatar-3.jfif");
+  background-size: cover;
+}
+.card .card-footer .avatar.avatar-4 {
+  background-image: url("../img/avatar-4.png");
+  background-size: cover;
+}
+.card .card-footer .avatar.avatar-5 {
+  background-image: url("../img/avatar-5.png");
+  background-size: cover;
 }
 
 /*# sourceMappingURL=style.css.map */

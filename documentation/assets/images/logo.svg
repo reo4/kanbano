@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1213.573" height="269" viewBox="0 0 1213.573 269">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #28b76b;
+      }
+
+      .cls-2 {
+        font-size: 233px;
+        font-family: ArialRoundedMTBold, Arial Rounded MT;
+      }
+    </style>
+  </defs>
+  <g id="Group_1" data-name="Group 1" transform="translate(-723.427 -478.988)">
+    <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-1" width="55.041" height="210.145" rx="27.52" transform="translate(723.427 515.693)"/>
+    <text id="Kanbano" class="cls-2" transform="translate(919 698.988)"><tspan x="0" y="0">Kanbano</tspan></text>
+    <rect id="Rectangle_27" data-name="Rectangle 27" class="cls-1" width="55.041" height="124.285" rx="27.52" transform="translate(799.954 558.623)"/>
+  </g>
+</svg>
