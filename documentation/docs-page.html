@@ -43,7 +43,7 @@
 				</div>
 				<div class="docs-top-utilities d-flex justify-content-end align-items-center">
 					<a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-4-documentation-template-for-software-projects/"
-						class="btn btn-primary d-none d-lg-flex">Purchase</a>
+						class="btn btn-primary d-none d-lg-flex">Purchase 9$</a>
 				</div>
 			</div>
 		</div>
@@ -97,6 +97,12 @@
 								<i class="fas fa-lock"></i>
 							</span>Lock Cards & Lists</a>
 					</li>
+					<li class="nav-item section-title mt-3">
+						<a class="nav-link scrollto" href="#section-7">
+							<span class="theme-icon-holder mr-2">
+								<i class="fas fa-exchange-alt"></i>
+							</span>Change Direction</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -108,7 +114,7 @@
 						<section class="docs-intro">
 							<p><strong>Kanbano</strong> is the best kanban library to help you build kanabn
 								boards , you could build
-								your own template or choose from 9 wonderful themes</p>
+								your own template or choose from 9 wonderful templates</p>
 						</section>
 					</header>
 				</article>
@@ -168,7 +174,7 @@
 								<code>init</code>
 								function
 							</p>
-							<div class="template-image">
+							<div class="image template-image">
 								<img src="assets/images/template.svg" alt="">
 							</div>
 							<div class="docs-code-block">
@@ -183,47 +189,39 @@
 					<header class="docs-header">
 						<h1 class="docs-heading">Placeholder & Active state</h1>
 						<section class="docs-intro">
-							<p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus
-								condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh
-								convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce
-								in malesuada odio.</p>
+							<p>
+								you could change the style of either the active-state or the the placeholder of the card and list by
+								using the following css classes:
+								<br>
+								<code>dragging-active-card</code>
+								<code>dragging-active-list</code>
+								<code>cloned-card</code>
+								<code>cloned-list</code>
+								these classes are put on the current moving card or list so you could minpulate their style
+								at this moment .
+							</p>
+							<div class="image active-state-placeholder-image">
+								<img src="assets/images/active-state-placeholder.svg" alt="">
+							</div>
+							<p>Also you could change the names of these classes when initiating the kanbano plugin</p>
+							<script src="https://gist.github.com/reo4/89726180ec2ad2af2435292fcfb3a5d6.js"></script>
 						</section>
-						<!--//docs-intro-->
 					</header>
-					<section class="docs-section" id="item-3-1">
-						<h2 class="section-heading">Section Item 3.1</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo.
-							Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum
-							imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies
-							porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin
-							est. Vestibulum ultricies malesuada tempor.</p>
-					</section>
-					<!--//section-->
-
-					<section class="docs-section" id="item-3-2">
-						<h2 class="section-heading">Section Item 3.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo.
-							Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum
-							imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies
-							porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin
-							est. Vestibulum ultricies malesuada tempor.</p>
-					</section>
-					<!--//section-->
-
-					<section class="docs-section" id="item-3-3">
-						<h2 class="section-heading">Section Item 3.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo.
-							Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum
-							imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies
-							porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin
-							est. Vestibulum ultricies malesuada tempor.</p>
-					</section>
-					<!--//section-->
 				</article>
 
 				<article class="docs-article" id="section-5">
 					<header class="docs-header">
 						<h1 class="docs-heading">Listen to Events</h1>
+						<section class="docs-intro">
+							<p>when you move card or list from position to another position event is fired with data</p>
+							<script src="https://gist.github.com/reo4/46047040e3d880530283b190ae5deb35.js"></script>
+						</section>
+					</header>
+				</article>
+
+				<article class="docs-article" id="section-6">
+					<header class="docs-header">
+						<h1 class="docs-heading">Lock Cards & Lists</h1>
 						<section class="docs-intro">
 							<p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus
 								condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh
@@ -232,40 +230,10 @@
 						</section>
 						<!--//docs-intro-->
 					</header>
-					<section class="docs-section" id="item-4-1">
-						<h2 class="section-heading">Section Item 4.1</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo.
-							Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum
-							imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies
-							porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin
-							est. Vestibulum ultricies malesuada tempor.</p>
-					</section>
-					<!--//section-->
-
-					<section class="docs-section" id="item-4-2">
-						<h2 class="section-heading">Section Item 4.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo.
-							Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum
-							imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies
-							porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin
-							est. Vestibulum ultricies malesuada tempor.</p>
-					</section>
-					<!--//section-->
-
-					<section class="docs-section" id="item-4-3">
-						<h2 class="section-heading">Section Item 4.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo.
-							Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum
-							imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies
-							porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin
-							est. Vestibulum ultricies malesuada tempor.</p>
-					</section>
-					<!--//section-->
 				</article>
-
-				<article class="docs-article" id="section-6">
+				<article class="docs-article" id="section-7">
 					<header class="docs-header">
-						<h1 class="docs-heading">Lock Cards & Lists</h1>
+						<h1 class="docs-heading">Change Direction</h1>
 						<section class="docs-intro">
 							<p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus
 								condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh
