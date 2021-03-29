@@ -62,6 +62,24 @@
       }
     }
   }
+  @media (max-width: 730px){
+    flex-direction: column;
+    padding: 30px;
+    .event {
+      margin-bottom: 20px;
+    }
+    .from {
+      margin-bottom: 20px;
+    }
+    .divider {
+      display: none;
+    }  
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }  
+  } 
 }
 .snackbar.show {
   bottom: 50px;

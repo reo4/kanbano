@@ -43,4 +43,20 @@
   document.querySelector('.close-btn').addEventListener('click', function () {
     snackbar.classList.remove('show')
   })
+
+
+  var wrapper = document.querySelector('.wrapper')
+  var menu = document.querySelector('.setting-menu')
+  var btn = document.querySelector('.setting-menu .open-btn')
+  btn.addEventListener('click', function () {
+    if (menu.classList.contains('open')) {
+      menu.classList.remove('open')
+      wrapper.classList.remove('open')
+    }
+    else {
+      menu.classList.add('open')
+      wrapper.classList.add('open')
+    }
+  })
+
 }())

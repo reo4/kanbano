@@ -1,0 +1,38 @@
+.setting-menu {
+  position: fixed;
+  top: 0px;
+  bottom: 0;
+  right: -300px;
+  width: 300px;
+  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 35%);
+  transition: all 0.5s;
+  &.open {
+    right: 0;
+  }
+  .menu-wrapper {
+    height: 100%;
+    position: relative;
+    .open-btn {
+      position: absolute;
+      background-color: #dc2626;
+      height: 50px;
+      width: 50px;
+      left: -50px;
+      top: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      color: white;
+      border-radius: 6px 0px 0px 6px;
+      cursor: pointer;
+      i {
+        font-size: 20px;
+      }
+    }
+    .menu {
+      background-color: #f1f5f9;
+      height: 100%;
+    }
+  }
+}

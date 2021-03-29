@@ -1,0 +1,26 @@
+.image{
+  margin-top: 15px;
+  text-align: center;
+  margin: 70px 0;
+}
+.template-image img {
+  width: 100%;
+  max-width: 800px;
+}
+.active-state-placeholder-image  img {
+  width: 100%;
+  max-width: 650px;
+}
+.event-image img {
+  width: 70%;
+}
+.badge-grey {
+  color: #464646;
+    background-color: #bebebe;
+}
+#docs-sidebar-toggler {
+  background-color: white;
+}
+#docs-sidebar-toggler span {
+  background-color: black;
+}

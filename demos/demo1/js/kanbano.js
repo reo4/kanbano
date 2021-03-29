@@ -59,17 +59,14 @@
       listTitle.style.cursor = 'grab'
     })
 
-    container.addEventListener("touchstart", dragStart, false);
-    container.addEventListener("touchmove", drag, false);
-    container.addEventListener("touchend", dragEnd, false);
+    container.addEventListener("mousedown", dragStart, false);
+    container.addEventListener("mousemove", drag, false);
+    container.addEventListener("mouseup", dragEnd, false);
 
-    container.addEventListener("mousedown" , dragStart , false);
-    container.addEventListener("mousemove" , drag , false);
-    container.addEventListener("mouseup" , dragEnd , false);
-
-    function dragStart (e) {
+    function dragStart(e) {
       var lists = document.querySelectorAll(self.options.lists)
-      if(e.type === "touchstart"){
+      if (e.type === "touchstart") {
+        e.preventDefault()
         initialX = e.touches[0].clientX;
         initialY = e.touches[0].clientY;
         prevX = e.touches[0].clientX;
@@ -102,7 +99,7 @@
       })
     }
 
-    function drag (e) {
+    function drag(e) {
       if (activeButton) {
         if (buttonFirstShot) {
           var cloneButton = activeButton.cloneNode(true);
@@ -128,7 +125,7 @@
           buttonFirstShot = false
 
         }
-        if(e.type === "touchmove"){
+        if (e.type === "touchmove") {
           offsetX = e.touches[0].clientX - initialX + initialPositionX;
           offsetY = e.touches[0].clientY - initialY + initialPositionY;
         }
@@ -146,7 +143,7 @@
         cloned.style.top = offsetY + 'px'
 
         lists.forEach(function (list) {
-          if(self.options.direction === 'vertical'){
+          if (self.options.direction === 'vertical') {
             var listLeft = list.getBoundingClientRect().left
             var listRight = list.getBoundingClientRect().right
             if (centerY > listLeft && centerY < listRight) {
@@ -179,7 +176,7 @@
               }
             }
           }
-          if(self.options.direction === 'horizontal'){
+          if (self.options.direction === 'horizontal') {
             var listTop = list.getBoundingClientRect().top
             var listBottom = list.getBoundingClientRect().bottom
             if (centerX > listTop && centerX < listBottom) {
@@ -219,8 +216,8 @@
         lists.forEach(function (list) {
           if (list.contains(activeButton)) {
             var listContent = list.querySelector(self.options.listContent)
-            
-            if(self.options.direction === 'vertical'){
+
+            if (self.options.direction === 'vertical') {
               if (cloned.getBoundingClientRect().bottom > listContent.getBoundingClientRect().bottom - 100 &&
                 listContent.scrollHeight - listContent.scrollTop !== listContent.clientHeight &&
                 cloned.getBoundingClientRect().top - initialPositionY > 50
@@ -240,8 +237,8 @@
               else {
                 clearInterval(scrollBottomInterval)
               }
-  
-  
+
+
               if (cloned.getBoundingClientRect().top < listContent.getBoundingClientRect().top + 100 &&
                 listContent.scrollTop !== 0 &&
                 initialBottom - cloned.getBoundingClientRect().bottom > 50
@@ -262,8 +259,8 @@
                 clearInterval(scrollTopInterval)
               }
             }
-            
-            if(self.options.direction === 'horizontal'){
+
+            if (self.options.direction === 'horizontal') {
               if (cloned.getBoundingClientRect().right > listContent.getBoundingClientRect().right - 100 &&
                 listContent.scrollWidth - listContent.scrollLeft !== listContent.clientWidth &&
                 cloned.getBoundingClientRect().left - initialPositionX > 50
@@ -283,8 +280,8 @@
               else {
                 clearInterval(scrollRightInterval)
               }
-  
-  
+
+
               if (cloned.getBoundingClientRect().left < listContent.getBoundingClientRect().left + 100 &&
                 listContent.scrollLeft !== 0 &&
                 initialRight - cloned.getBoundingClientRect().right > 50
@@ -293,7 +290,7 @@
                 var leftIncrement = parseInt((listContent.getBoundingClientRect().left + 100 - cloned.getBoundingClientRect().left) * .02)
                 clearInterval(scrollLeftInterval)
                 scrollLeftInterval = setInterval(function () {
-                  listContent.scrollLeft = listContent.scrollLeft- leftIncrement
+                  listContent.scrollLeft = listContent.scrollLeft - leftIncrement
                 }, leftDifference)
                 listContent.addEventListener('scroll', function () {
                   if (listContent.scrollLeft === 0) {
@@ -332,7 +329,7 @@
           activeList.classList.add(self.options.activeListClass);
           listFirstShot = false
         }
-        if(e.type === "touchmove"){
+        if (e.type === "touchmove") {
           offsetX = e.touches[0].clientX - initialX + initialPositionX;
           offsetY = e.touches[0].clientY - initialY + initialPositionY;
         }
@@ -349,8 +346,8 @@
         if (!activeList.classList.contains(self.options.lockClass)) {
           cloned.style.top = offsetY + 'px'
         }
-        
-        if(self.options.direction === 'vertical'){
+
+        if (self.options.direction === 'vertical') {
           var centersY = []
           lists.forEach(function (list) {
             if (list !== activeList && list !== cloned.querySelector('.list')) {
@@ -375,7 +372,7 @@
           }
         }
 
-        if(self.options.direction === 'horizontal'){
+        if (self.options.direction === 'horizontal') {
           var centersX = []
           lists.forEach(function (list) {
             if (list !== activeList && list !== cloned.querySelector('.list')) {
@@ -402,7 +399,7 @@
 
       }
       if (cloned) {
-        if(self.options.direction === 'vertical'){
+        if (self.options.direction === 'vertical') {
           if (cloned.getBoundingClientRect().right > board.getBoundingClientRect().right - 100 &&
             board.scrollWidth - board.scrollLeft !== board.clientWidth &&
             cloned.getBoundingClientRect().left - initialPositionX > 50
@@ -421,7 +418,7 @@
           else {
             clearInterval(scrollRightInterval)
           }
-  
+
           if (cloned.getBoundingClientRect().left < board.getBoundingClientRect().left + 100 &&
             board.scrollLeft !== 0 &&
             initialRight - cloned.getBoundingClientRect().right > 50
@@ -441,7 +438,7 @@
             clearInterval(scrollLeftInterval)
           }
         }
-        if(self.options.direction === 'horizontal'){
+        if (self.options.direction === 'horizontal') {
           if (cloned.getBoundingClientRect().bottom > board.getBoundingClientRect().bottom - 100 &&
             board.scrollHeight - board.scrollTop !== board.clientHeight &&
             cloned.getBoundingClientRect().top - initialPositionY > 50
@@ -460,7 +457,7 @@
           else {
             clearInterval(scrollBottomInterval)
           }
-  
+
           if (cloned.getBoundingClientRect().top < board.getBoundingClientRect().top + 100 &&
             board.scrollTop !== 0 &&
             initialBottom - cloned.getBoundingClientRect().bottom > 50
@@ -482,7 +479,7 @@
         }
       }
 
-      if(e.type === "touchmove"){
+      if (e.type === "touchmove") {
         prevX = e.touches[0].clientX;
         prevY = e.touches[0].clientY;
       }
@@ -562,7 +559,7 @@
         listFirstShot = false
       }
     }
-  
+
   }
 
   function extendDefaults(source, properties) {
