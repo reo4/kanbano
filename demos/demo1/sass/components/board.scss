@@ -8,24 +8,32 @@ $font-xs: 11px;
   flex-grow: 1;
   padding-top: 25px;
 }
-.list{
+.list {
   min-width: 320px;
   max-width: 320px;
   padding: 12px 20px;
   .list-title {
     padding-bottom: 18px;
+    font-weight: 500;
+    font-size: 17px;
   }
   &-grey .list-title {
     border-bottom: 3px solid #ddd;
   }
   &-cyan .list-title {
-    border-bottom: 3px solid #5BDBF6;
+    border-bottom: 3px solid #5bdbf6;
   }
   &-orange .list-title {
-    border-bottom: 3px solid #FFB855;
+    border-bottom: 3px solid #ffb855;
   }
   &-green .list-title {
-    border-bottom: 3px solid #3E993C;
+    border-bottom: 3px solid #3e993c;
+  }
+  &-red .list-title {
+    border-bottom: 3px solid #c71414;
+  }
+  &-blue .list-title {
+    border-bottom: 3px solid #493c99;
   }
   .list-content {
     margin-top: 15px;
@@ -78,4 +86,4 @@ $font-xs: 11px;
       margin-top: 10px;
     }
   }
-} 
+}

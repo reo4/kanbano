@@ -6,7 +6,7 @@ html body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
   font-family: "Roboto", sans-serif;
 }
 html body .wrapper {
@@ -15,8 +15,17 @@ html body .wrapper {
   flex-direction: column;
   box-sizing: border-box;
   padding-bottom: 10px;
+  transition: all 0.5s;
 }
-html h1, html h2, html h3, html h4, html h5, html h6 {
+html body .wrapper.open {
+  padding-right: 300px;
+}
+html h1,
+html h2,
+html h3,
+html h4,
+html h5,
+html h6 {
   margin: 0;
 }
 
@@ -39,6 +48,7 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
 .header {
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
   left: 0;
   right: 0;
@@ -63,6 +73,8 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
   display: flex;
   align-items: center;
   margin-right: 40px;
+  position: absolute;
+  right: 0;
 }
 .header .btns a {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
@@ -97,18 +109,26 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
 }
 .list .list-title {
   padding-bottom: 18px;
+  font-weight: 500;
+  font-size: 17px;
 }
 .list-grey .list-title {
   border-bottom: 3px solid #ddd;
 }
 .list-cyan .list-title {
-  border-bottom: 3px solid #5BDBF6;
+  border-bottom: 3px solid #5bdbf6;
 }
 .list-orange .list-title {
-  border-bottom: 3px solid #FFB855;
+  border-bottom: 3px solid #ffb855;
 }
 .list-green .list-title {
-  border-bottom: 3px solid #3E993C;
+  border-bottom: 3px solid #3e993c;
+}
+.list-red .list-title {
+  border-bottom: 3px solid #c71414;
+}
+.list-blue .list-title {
+  border-bottom: 3px solid #493c99;
 }
 .list .list-content {
   margin-top: 15px;
@@ -263,6 +283,7 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
   width: 300px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.35);
   transition: all 0.5s;
+  z-index: 1000;
 }
 .setting-menu.open {
   right: 0;
@@ -273,7 +294,7 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
 }
 .setting-menu .menu-wrapper .open-btn {
   position: absolute;
-  background-color: #dc2626;
+  background-color: #39c367;
   height: 50px;
   width: 50px;
   left: -50px;
@@ -283,14 +304,14 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
   justify-content: center;
   border: 0;
   color: white;
-  border-radius: 6px 0px 0px 6px;
+  border-radius: 4px 0px 0px 4px;
   cursor: pointer;
 }
 .setting-menu .menu-wrapper .open-btn i {
   font-size: 20px;
 }
 .setting-menu .menu-wrapper .menu {
-  background-color: #f1f5f9;
+  background-color: #171717;
   height: 100%;
 }
 
