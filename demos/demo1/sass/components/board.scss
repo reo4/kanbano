@@ -84,6 +84,9 @@ $font-xs: 11px;
       background-color: #ff4949;
       color: white;
       margin-top: 10px;
+      &.green {
+        background-color: #69e89c;
+      }
     }
   }
 }

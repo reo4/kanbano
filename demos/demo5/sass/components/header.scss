@@ -7,4 +7,16 @@
   font-weight: bold;
   color: #cccbd4;
   border-bottom: 1px solid #323237;
+  .logo {
+    font-size: 32px;
+    font-weight: bold;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    img {
+      width: 30px;
+      margin-right: 8px;
+    }
+  }
 }

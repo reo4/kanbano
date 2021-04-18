@@ -182,6 +182,9 @@ html h6 {
   color: white;
   margin-top: 10px;
 }
+.card .card-content .due-date.green {
+  background-color: #69e89c;
+}
 
 .snackbar {
   display: flex;
@@ -222,7 +225,8 @@ html h6 {
   transform: translateY(0);
   opacity: 1;
 }
-.snackbar .list-group, .snackbar .card-group {
+.snackbar .list-group,
+.snackbar .card-group {
   margin: 0 10px;
 }
 .snackbar .list-value {
@@ -245,6 +249,7 @@ html h6 {
   color: white;
   border: none;
   cursor: pointer;
+  outline: none;
 }
 .snackbar .close-btn button i {
   margin-right: 0;
