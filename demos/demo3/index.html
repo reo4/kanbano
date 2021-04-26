@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanbano | Demo 3</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="css/kanbano.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body> 
+  <!-- <div class="right-menu">
+    <ul>
+      <li><a href="#"><i class=""></i></a></li>
+      <li><a href="#"><i class=""></i></a></li>
+    </ul>
+  </div>  -->
+  <div class="wrapper">
+    <div class="header">
+      <div class="logo">
+        <img src="./img/logo.svg" alt="logo" />
+        Kanbano
+      </div>
+    </div>
+    <div class="board">
+      <div class="list">
+        <div class="list-title">
+          <div class="left">
+            <div class="icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="text">Shortlist</div>
+          </div>
+          <div class="right">5</div>
+        </div>
+        <div class="list-content">
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-1.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Irene Sacchi</div>
+                <div class="description">23 y.o Canada</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-100"></div>
+              <div class="progress-details">10/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-2.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Jacob Nguyen</div>
+                <div class="description">17 y.o New York</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-30"></div>
+              <div class="progress-details">3/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-3.png" class="avatar">
+              <div class="media-content">
+                <div class="name">Arthur Hawkins</div>
+                <div class="description">21 y.o Taxes</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-20"></div>
+              <div class="progress-details">2/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-4.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Cyril Tim</div>
+                <div class="description">17 y.o New York</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-10"></div>
+              <div class="progress-details">1/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-5.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Erik Dawson</div>
+                <div class="description">17 y.o New York</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-0"></div>
+              <div class="progress-details">0/10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="list">
+        <div class="list-title">
+          <div class="left">
+            <div class="icon">
+              <i class="fas fa-stopwatch-20"></i>
+            </div>
+            <div class="text">Round 3</div>
+          </div>
+          <div class="right">9</div>
+        </div>
+        <div class="list-content">
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-6.jfif" class="avatar">
+              <div class="media-content">
+                <div class="name">Hamel Toothill</div>
+                <div class="description">18 y.o Nevada</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-60"></div>
+              <div class="progress-details">6/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-7.png" class="avatar">
+              <div class="media-content">
+                <div class="name">Moses Louis</div>
+                <div class="description">15 y.o lowa</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-50"></div>
+              <div class="progress-details">5/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-8.jfif" class="avatar">
+              <div class="media-content">
+                <div class="name">Mellisa Searles</div>
+                <div class="description">21 y.o Georgia</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-70"></div>
+              <div class="progress-details">7/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-9.jfif" class="avatar">
+              <div class="media-content">
+                <div class="name">Eugene Isakov</div>
+                <div class="description">29 y.o Alabama</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-70"></div>
+              <div class="progress-details">7/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-10.jfif" class="avatar">
+              <div class="media-content">
+                <div class="name">Vincenty Beedom	</div>
+                <div class="description">33 y.o Maryland</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-70"></div>
+              <div class="progress-details">7/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-10.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Hayes Le Franc</div>
+                <div class="description">30 y.o California</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-30"></div>
+              <div class="progress-details">3/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-11.jfif" class="avatar">
+              <div class="media-content">
+                <div class="name">Charity Brewitt	</div>
+                <div class="description">32 y.o Florida</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-80"></div>
+              <div class="progress-details">8/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-11.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Torin Ghidelli</div>
+                <div class="description">43 y.o Pennsylvania</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-10"></div>
+              <div class="progress-details">1/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-12.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Sayers Serotsky</div>
+                <div class="description">25 y.o Illinois</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-70"></div>
+              <div class="progress-details">7/10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="list">
+        <div class="list-title">
+          <div class="left">
+            <div class="icon">
+              <i class="fas fa-stopwatch-20"></i>
+            </div>
+            <div class="text">Round 4</div>
+          </div>
+          <div class="right">3</div>
+        </div>
+        <div class="list-content">
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-11.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Torin Ghidelli</div>
+                <div class="description">43 y.o Pennsylvania</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-10"></div>
+              <div class="progress-details">1/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-12.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Sayers Serotsky</div>
+                <div class="description">25 y.o Illinois</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-70"></div>
+              <div class="progress-details">7/10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="list">
+        <div class="list-title">
+          <div class="left">
+            <div class="icon">
+              <i class="fas fa-stopwatch-20"></i>
+            </div>
+            <div class="text">Round 2</div>
+          </div>
+          <div class="right">3</div>
+        </div>
+        <div class="list-content">
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-6.jfif" class="avatar">
+              <div class="media-content">
+                <div class="name">Hamel Toothill</div>
+                <div class="description">18 y.o Nevada</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-60"></div>
+              <div class="progress-details">6/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-7.png" class="avatar">
+              <div class="media-content">
+                <div class="name">Moses Louis</div>
+                <div class="description">15 y.o lowa</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-50"></div>
+              <div class="progress-details">5/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-8.jfif" class="avatar">
+              <div class="media-content">
+                <div class="name">Mellisa Searles</div>
+                <div class="description">21 y.o Georgia</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-70"></div>
+              <div class="progress-details">7/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-9.jfif" class="avatar">
+              <div class="media-content">
+                <div class="name">Eugene Isakov</div>
+                <div class="description">29 y.o Alabama</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-70"></div>
+              <div class="progress-details">7/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-10.jfif" class="avatar">
+              <div class="media-content">
+                <div class="name">Vincenty Beedom	</div>
+                <div class="description">33 y.o Maryland</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-70"></div>
+              <div class="progress-details">7/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-10.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Hayes Le Franc</div>
+                <div class="description">30 y.o California</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-30"></div>
+              <div class="progress-details">3/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-11.jfif" class="avatar">
+              <div class="media-content">
+                <div class="name">Charity Brewitt	</div>
+                <div class="description">32 y.o Florida</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-80"></div>
+              <div class="progress-details">8/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-11.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Torin Ghidelli</div>
+                <div class="description">43 y.o Pennsylvania</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-10"></div>
+              <div class="progress-details">1/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-12.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Sayers Serotsky</div>
+                <div class="description">25 y.o Illinois</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-70"></div>
+              <div class="progress-details">7/10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="list">
+        <div class="list-title">
+          <div class="left">
+            <div class="icon">
+              <i class="fas fa-stopwatch-20"></i>
+            </div>
+            <div class="text">Round 5</div>
+          </div>
+          <div class="right">3</div>
+        </div>
+        <div class="list-content">
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-9.jfif" class="avatar">
+              <div class="media-content">
+                <div class="name">Eugene Isakov</div>
+                <div class="description">29 y.o Alabama</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-70"></div>
+              <div class="progress-details">7/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-10.jfif" class="avatar">
+              <div class="media-content">
+                <div class="name">Vincenty Beedom	</div>
+                <div class="description">33 y.o Maryland</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-70"></div>
+              <div class="progress-details">7/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-10.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Hayes Le Franc</div>
+                <div class="description">30 y.o California</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-30"></div>
+              <div class="progress-details">3/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-11.jfif" class="avatar">
+              <div class="media-content">
+                <div class="name">Charity Brewitt	</div>
+                <div class="description">32 y.o Florida</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-80"></div>
+              <div class="progress-details">8/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-11.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Torin Ghidelli</div>
+                <div class="description">43 y.o Pennsylvania</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-10"></div>
+              <div class="progress-details">1/10</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <img src="img/avatar-12.jpg" class="avatar">
+              <div class="media-content">
+                <div class="name">Sayers Serotsky</div>
+                <div class="description">25 y.o Illinois</div>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-line w-70"></div>
+              <div class="progress-details">7/10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <script src="js/kanbano.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

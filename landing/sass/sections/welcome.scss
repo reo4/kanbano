@@ -1,5 +1,7 @@
 .welcome-section {
   background-color: #f1f9f4;
+  position: relative;
+  padding-bottom: 25rem;
   .header {
     display: flex;
     justify-content: space-between;
@@ -39,7 +41,7 @@
   margin-top: 0;
   color: #364152;
   h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-bottom: 0;
   }
   p {
@@ -70,6 +72,8 @@
   }
 }
 .cover-image {
+  position: absolute;
+  bottom: -420px;
   text-align: center;
   img {
     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%);

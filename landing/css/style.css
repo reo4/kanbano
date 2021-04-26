@@ -20,6 +20,8 @@ body .container {
 
 .welcome-section {
   background-color: #f1f9f4;
+  position: relative;
+  padding-bottom: 25rem;
 }
 .welcome-section .header {
   display: flex;
@@ -57,7 +59,7 @@ body .container {
   color: #364152;
 }
 .content h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   margin-bottom: 0;
 }
 .content p {
@@ -88,11 +90,99 @@ body .container {
 }
 
 .cover-image {
+  position: absolute;
+  bottom: -420px;
   text-align: center;
 }
 .cover-image img {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   border-radius: 0.5rem;
+}
+
+.demos-section {
+  padding-top: 35rem;
+  padding-bottom: 10rem;
+}
+.demos-section .container {
+  max-width: 1680px;
+}
+.demos-section .container .demos-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.demos-section .container .demos-wrapper .col {
+  width: 33.33%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.demos-section .container .demos-wrapper .col .demo {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 0px 20px rgba(92, 111, 139, 0.12);
+  border-radius: 9px;
+}
+.demos-section .container .demos-wrapper .col .demo .title {
+  padding-bottom: 20px;
+}
+.demos-section .container .demos-wrapper .col .demo .screenshot img {
+  max-width: 100%;
+  border: 1px solid #EFF4FD;
+  border-radius: 0.3rem;
+}
+
+.features-section {
+  background-color: #f1f9f4;
+  padding: 6rem 0;
+}
+.features-section .container .content-box {
+  margin-bottom: 4rem;
+}
+.features-section .container .features-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.features-section .container .features-wrapper .col {
+  width: 33.33%;
+  padding: 2rem 3rem;
+  box-sizing: border-box;
+}
+.features-section .container .features-wrapper .col .feature img {
+  width: 64px;
+}
+.features-section .container .features-wrapper .col .feature .title {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #364152;
+}
+.features-section .container .features-wrapper .col .feature .description {
+  color: #64748B;
+  margin-top: 0.5rem;
+}
+
+/* components */
+.content-box {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+.content-box .sub-title {
+  color: #28b76b;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 1.125rem;
+}
+.content-box .title {
+  margin-top: 0.25rem;
+  line-height: 1.25rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #364152;
+  margin: 40px 0;
+}
+.content-box .description {
+  color: #64748b;
+  max-width: 45rem;
+  margin: 0 auto;
+  font-size: 1.125rem;
 }
 
 /*# sourceMappingURL=style.css.map */
