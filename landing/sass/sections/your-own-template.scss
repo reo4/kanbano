@@ -1,0 +1,24 @@
+.your-own-template-section {
+  background-color: #28b76b;
+  padding: 3rem 1rem;
+  color: white;
+  text-align: center;
+  .title {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+  }
+  .sub-title {
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: 900px;
+    margin-left:  auto;
+    margin-right:  auto;
+  }
+  .btn-section{
+    margin: 0;
+    .btn.primary {
+      background-color: #004420;
+    }
+  }
+}

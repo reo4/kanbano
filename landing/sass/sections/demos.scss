@@ -1,6 +1,18 @@
 .demos-section {
   padding-top: 35rem;
   padding-bottom: 10rem;
+  @media(max-width: 1370px){
+    padding-top: 37vw;
+  }
+  @media (max-width: 1100px){
+    padding-bottom: 6rem;
+  }
+  @media (max-width: 715px){
+    padding-top: 20rem;
+  }
+  @media (max-width: 650px){
+    padding-bottom: 3rem;
+  }
   .container {
     max-width: 1680px;
     .demos-wrapper {
@@ -10,11 +22,17 @@
         width: 33.33%;
         padding: 0 15px;
         box-sizing: border-box;
+        @media (max-width: 1100px){
+          width: 100%;
+        }
         .demo {
           background-color: white;
           padding: 20px;
           box-shadow: 0px 0px 20px rgb(92 111 139 / 12%);
           border-radius: 9px;
+          @media (max-width: 1100px){
+            margin-bottom: 40px;
+          }
           .title {
             padding-bottom: 20px;
           }
