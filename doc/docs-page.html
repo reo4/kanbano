@@ -164,6 +164,9 @@
 					<header class="docs-header">
 						<h1 class="docs-heading">Build your own template</h1>
 						<section class="docs-intro">
+							<div class="image template-image">
+								<img src="assets/images/template.svg" alt="">
+							</div>
 							<p>You could build your own template easily just you need to follow this digram , this is the basic
 								structure of any board
 								<br>
@@ -171,9 +174,6 @@
 								<code>init</code>
 								function
 							</p>
-							<div class="image template-image">
-								<img src="assets/images/template.svg" alt="">
-							</div>
 							<div class="docs-code-block">
 								<script src="https://gist.github.com/reo4/5c101446dbd0aa68146cd6ef0dc627cc.js"></script>
 							</div>
@@ -186,6 +186,9 @@
 					<header class="docs-header">
 						<h1 class="docs-heading">Placeholder & Active state</h1>
 						<section class="docs-intro">
+							<div class="image active-state-placeholder-image">
+								<img src="assets/images/active-state-placeholder.svg" alt="">
+							</div>
 							<p>
 								you could change the style of either the active-state or the the placeholder of the card and list by
 								using the following css classes:
@@ -197,9 +200,6 @@
 								these classes are put on the current moving card or list so you could minpulate their style
 								at this moment .
 							</p>
-							<div class="image active-state-placeholder-image">
-								<img src="assets/images/active-state-placeholder.svg" alt="">
-							</div>
 							<p>Also you could change the names of these classes when initiating the kanbano plugin</p>
 							<script src="https://gist.github.com/reo4/89726180ec2ad2af2435292fcfb3a5d6.js"></script>
 						</section>
@@ -210,10 +210,10 @@
 					<header class="docs-header">
 						<h1 class="docs-heading">Listen to Events</h1>
 						<section class="docs-intro">
-							<p>when you move card or list, event is fired with data object which include the location of the moved item before and after firing the event.</p>
 							<div class="image event-image">
 								<img src="assets/images/event.svg" alt="">
 							</div>
+							<p>when you move card or list, event is fired with data object which include the location of the moved item before and after firing the event.</p>
 							<script src="https://gist.github.com/reo4/46047040e3d880530283b190ae5deb35.js"></script>
 						</section>
 					</header>
@@ -234,7 +234,11 @@
 					<header class="docs-header">
 						<h1 class="docs-heading">Control Direction</h1>
 						<section class="docs-intro">
+							<div class="image direction">
+								<img src="assets/images/direction.svg" alt="">
+							</div>
 							<p>If you want to change the direction of the board from horizontal to vertical you could change the value of <code>direction</code> property when initiating the kanbano plugin</p>
+							<script src="https://gist.github.com/reo4/bcc9949b1baaa2f736cf2542819f3ecc.js"></script>
 						</section>
 						<!--//docs-intro-->
 					</header>

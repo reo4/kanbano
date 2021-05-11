@@ -77,6 +77,9 @@ body .container {
   color: #364152;
   margin-left: 20px;
 }
+.welcome-section .header ul li a:hover {
+  color: #4a5971;
+}
 .welcome-section .header ul li:last-child a {
   margin-right: 0;
 }
@@ -196,6 +199,12 @@ body .container {
   padding: 20px;
   box-shadow: 0px 0px 20px rgba(92, 111, 139, 0.12);
   border-radius: 9px;
+  display: inline-block;
+  transition: all 0.5s;
+  color: black;
+}
+.demos-section .container .demos-wrapper .col .demo:hover {
+  transform: scale(1.05);
 }
 @media (max-width: 1100px) {
   .demos-section .container .demos-wrapper .col .demo {

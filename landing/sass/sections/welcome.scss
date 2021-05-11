@@ -39,7 +39,9 @@
         a {
           color: #364152;
           margin-left: 20px;
-          
+          &:hover {
+            color: lighten($color: #364152, $amount: 10%)
+          }
         }
         &:last-child {
           a {

@@ -7,9 +7,12 @@
   width: 100%;
   max-width: 800px;
 }
-.active-state-placeholder-image  img {
+.active-state-placeholder-image img {
   width: 100%;
-  max-width: 650px;
+  max-width: 450px;
+}
+.direction img {
+  width: 90%;
 }
 .event-image img {
   width: 70%;

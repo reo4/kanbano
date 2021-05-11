@@ -30,6 +30,12 @@
           padding: 20px;
           box-shadow: 0px 0px 20px rgb(92 111 139 / 12%);
           border-radius: 9px;
+          display: inline-block;
+          transition: all .5s;
+          color: black;
+          &:hover {
+            transform: scale(1.05);
+          }
           @media (max-width: 1100px){
             margin-bottom: 40px;
           }
