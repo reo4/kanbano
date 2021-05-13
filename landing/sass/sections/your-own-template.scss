@@ -1,5 +1,6 @@
 .your-own-template-section {
-  background-color: #28b76b;
+  // background-color: #28b76b;
+  background-image: url(../img/pattern-2.png);
   padding: 3rem 1rem;
   color: white;
   text-align: center;
@@ -19,6 +20,9 @@
     margin: 0;
     .btn.primary {
       background-color: #004420;
+      &:hover {
+        background-color: lighten(#004420 , 7%)
+      }
     }
   }
 }

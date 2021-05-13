@@ -14,10 +14,10 @@
       listGroup.forEach(function (list) {
         list.style.display = 'inline-block'
       })
-      fromList.innerHTML = data.from.list
-      fromOrder.innerHTML = data.from.order
-      toList.innerHTML = data.to.list
-      toOrder.innerHTML = data.to.order
+      fromList.innerHTML = data.from.list_order
+      fromOrder.innerHTML = data.from.card_order
+      toList.innerHTML = data.to.list_order
+      toOrder.innerHTML = data.to.card_order
       setTimeout(function () {
         eventName.classList.add('show')
         eventName.innerHTML = 'onCardMoved'
@@ -29,8 +29,8 @@
       listGroup.forEach(function (list) {
         list.style.display = 'none'
       })
-      fromOrder.innerHTML = data.from.order
-      toOrder.innerHTML = data.to.order
+      fromOrder.innerHTML = data.from.list_order
+      toOrder.innerHTML = data.to.list_order
       setTimeout(function () {
         eventName.classList.add('show')
         eventName.innerHTML = 'onListMoved'
@@ -44,19 +44,5 @@
     snackbar.classList.remove('show')
   })
 
-
-  var wrapper = document.querySelector('.wrapper')
-  var menu = document.querySelector('.setting-menu')
-  var btn = document.querySelector('.setting-menu .open-btn')
-  btn.addEventListener('click', function () {
-    if (menu.classList.contains('open')) {
-      menu.classList.remove('open')
-      wrapper.classList.remove('open')
-    }
-    else {
-      menu.classList.add('open')
-      wrapper.classList.add('open')
-    }
-  })
 
 }())

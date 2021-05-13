@@ -3,6 +3,13 @@
 }
 .dragging-active-card::before {
   content: "";
+  background: -o-repeating-linear-gradient(
+  315deg,
+  #2c2c31,
+  #2c2c31 20px,
+  #222227 20px,
+  #222227 40px
+  );
   background: repeating-linear-gradient(
   135deg,
   #2c2c31,
@@ -19,13 +26,23 @@
   border-radius: 10px;
 }
 .dragging-active-card {
-  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 .cloned-card {
-  transform: rotate(3deg);
+  -webkit-transform: rotate(3deg);
+      -ms-transform: rotate(3deg);
+          transform: rotate(3deg);
 }
 .dragging-active-list .list-title {
   position: relative;
+  background: -o-repeating-linear-gradient(
+  315deg,
+  #2c2c31,
+  #2c2c31 20px,
+  #222227 20px,
+  #222227 40px
+  );
   background: repeating-linear-gradient(
   135deg,
   #2c2c31,
@@ -35,6 +52,13 @@
   );
 }
 .dragging-active-list .list-title::before {
+  background: -o-repeating-linear-gradient(
+  315deg,
+  #2c2c31,
+  #2c2c31 20px,
+  #222227 20px,
+  #222227 40px
+  );
   background: repeating-linear-gradient(
   135deg,
   #2c2c31,
@@ -53,6 +77,13 @@
 }
 .dragging-active-list .list-content {
   position: relative;
+  background: -o-repeating-linear-gradient(
+  315deg,
+  #2c2c31,
+  #2c2c31 20px,
+  #222227 20px,
+  #222227 40px
+  );
   background: repeating-linear-gradient(
   135deg,
   #2c2c31,
@@ -62,6 +93,13 @@
   );
 }
 .dragging-active-list .list-content::before {
+  background: -o-repeating-linear-gradient(
+  315deg,
+  #2c2c31,
+  #2c2c31 20px,
+  #222227 20px,
+  #222227 40px
+  );
   background: repeating-linear-gradient(
   135deg,
   #2c2c31,
@@ -79,5 +117,7 @@
   border-radius: 10px;
 }
 .cloned-list {
-  transform: rotate(2deg);
+  -webkit-transform: rotate(2deg);
+      -ms-transform: rotate(2deg);
+          transform: rotate(2deg);
 }

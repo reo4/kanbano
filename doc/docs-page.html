@@ -33,14 +33,16 @@
 					</button>
 					<div class="site-logo">
 						<a class="navbar-brand" href="../landing/index.html" target="_blank">
-							<img class="logo-icon mr-2" src="assets/images/logo.svg" alt="logo" height="40">
-							Kanbano
+							<div class="logo">
+								<img class="logo-icon mr-2" src="assets/images/logo.svg" alt="logo" height="40">
+								Kanbano
+							</div>
 						</a>
 					</div>
 				</div>
 				<div class="docs-top-utilities d-flex justify-content-end align-items-center">
-					<a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-4-documentation-template-for-software-projects/"
-						class="btn btn-primary d-none d-lg-flex">Purchase 12$</a>
+					<a href="#"
+						class="btn btn-primary d-none d-sm-flex">Purchase 12$</a>
 				</div>
 			</div>
 		</div>
@@ -48,14 +50,6 @@
 
 	<div class="docs-wrapper">
 		<div id="docs-sidebar" class="docs-sidebar">
-			<div class="top-search-box d-lg-none p-3">
-				<form class="search-form">
-					<input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
-					<button type="submit" class="btn search-btn" value="Search">
-						<i class="fas fa-search"></i>
-					</button>
-				</form>
-			</div>
 			<nav id="docs-nav" class="docs-nav navbar">
 				<ul class="section-items list-unstyled nav flex-column pb-3">
 					<li class="nav-item section-title">
@@ -100,6 +94,10 @@
 								<i class="fas fa-exchange-alt"></i>
 							</span>Control Direction</a>
 					</li>
+					<li class="nav-item section-title mt-3">
+						<a href="#"
+						class="btn btn-primary d-flex d-sm-none">Purchase 12$</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -111,7 +109,7 @@
 						<section class="docs-intro">
 							<p><strong>Kanbano</strong> is the best kanban library to help you build kanabn
 								boards , you could build
-								your own template or choose from 9 wonderful templates</p>
+								your own template with all possible customizations needed</p>
 						</section>
 					</header>
 				</article>
@@ -141,21 +139,6 @@
 							<div class="docs-code-block">
 								<script src="https://gist.github.com/reo4/9f1698f98d35426f991b0b0e38979fd3.js"></script>
 							</div>
-							<div class="callout-block callout-block-info">
-								<div class="content">
-									<h4 class="callout-title">
-										<span class="callout-icon-holder mr-1">
-											<i class="fas fa-info-circle"></i>
-										</span>
-										Note
-									</h4>
-									<p>
-										You have to
-										<a href="#">purchase</a>
-										the plugin to get these files
-									</p>
-									</p>
-								</div>
 						</section>
 					</header>
 				</article>
@@ -239,6 +222,20 @@
 							</div>
 							<p>If you want to change the direction of the board from horizontal to vertical you could change the value of <code>direction</code> property when initiating the kanbano plugin</p>
 							<script src="https://gist.github.com/reo4/bcc9949b1baaa2f736cf2542819f3ecc.js"></script>
+							
+							<div class="callout-block callout-block-info mt-4">
+								<div class="content">
+									<h4 class="callout-title">
+										<span class="callout-icon-holder mr-1">
+											<i class="fas fa-info-circle"></i>
+										</span>
+										Note
+									</h4>
+									<p>
+										you should build the board in the required direction then change the value, This option change the behavior of the plugin and only affects the javascript code.
+									</p>
+								</div>
+							</div>
 						</section>
 						<!--//docs-intro-->
 					</header>

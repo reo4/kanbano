@@ -27,6 +27,9 @@
           a {
             font-size: 15px;
             color: #364152;
+            &:hover {
+              color: #28b76b;
+            }
             @media (max-width: 650px) {
               font-size: 12px;
             }

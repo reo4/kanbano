@@ -17,6 +17,11 @@
 .event-image img {
   width: 70%;
 }
+@media (max-width: 1200px) {
+  .event-image img, .direction img {
+    width: 100%;
+  }
+}
 .badge-grey {
   color: #464646;
     background-color: #bebebe;
@@ -27,4 +32,29 @@
 #docs-sidebar-toggler span {
   background-color: black;
 }
-
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #364152;
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  width: 30px;
+  margin-right: 8px;
+}
+.mt-4 {
+  margin-top: 40px !important;
+}
+.logo {
+  padding-top: 5px;
+}
+@media (max-width: 1200px) {
+  .logo {
+    padding-left: 20px;
+  }
+}
+.docs-sidebar-toggler {
+  top: -5px;
+  left: 10px;
+}

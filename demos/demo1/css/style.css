@@ -11,10 +11,18 @@ html body {
 }
 html body .wrapper {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding-bottom: 10px;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
   transition: all 0.5s;
 }
 html body .wrapper.open {
@@ -46,14 +54,21 @@ html h6 {
 }
 
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
   left: 0;
   right: 0;
   top: 0;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   background-color: white;
 }
 .header .logo {
@@ -62,43 +77,36 @@ html h6 {
   font-weight: bold;
   margin-right: auto;
   margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .header .logo img {
   width: 30px;
   margin-right: 8px;
 }
-.header .btns {
-  display: flex;
-  align-items: center;
-  margin-right: 40px;
-  position: absolute;
-  right: 0;
-}
-.header .btns a {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
-  display: inline-block;
-  margin-left: 10px;
-  text-decoration: none;
-  color: white;
-  padding: 10px 24px;
-  border-radius: 20px;
-  font-weight: bold;
-}
-.header .btns a.demo-btn {
-  background-color: black;
-}
-.header .btns a.purchase-btn {
-  background-color: #39c367;
-}
 
 .board {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   color: #383838;
   overflow-x: auto;
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   padding-top: 25px;
 }
 
@@ -140,14 +148,20 @@ html h6 {
 
 .card {
   background-color: white;
-  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15);
   border-radius: 3px;
   margin-bottom: 15px;
   padding: 16px 24px;
 }
 .card .card-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .card .card-content .title {
   font-weight: 600;
@@ -162,7 +176,8 @@ html h6 {
 .card .card-content .label {
   font-size: 13px;
   display: inline-block;
-  align-self: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   margin-bottom: 5px;
   border: 1px solid #e4e4e4;
   padding: 3px 12px;
@@ -175,7 +190,8 @@ html h6 {
 .card .card-content .due-date {
   font-size: 11px;
   display: inline-block;
-  align-self: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   padding: 3px 12px;
   border-radius: 25px;
   background-color: #ff4949;
@@ -187,17 +203,25 @@ html h6 {
 }
 
 .snackbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 20px;
   border-radius: 5px;
   position: fixed;
   bottom: 30px;
   background-color: #0e0e0e;
   color: white;
-  align-self: center;
-  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15);
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15);
   opacity: 0;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
   transition: all 0.5s;
   z-index: 2000;
 }
@@ -210,7 +234,9 @@ html h6 {
 .snackbar .divider {
   margin: 0 20px;
   border: 1px solid #383838;
-  align-self: stretch;
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
 }
 .snackbar .event .event-name {
   background: blueviolet;
@@ -218,11 +244,17 @@ html h6 {
   border-radius: 15px;
   margin-left: 3px;
   opacity: 0;
-  transform: translateY(30px);
+  -webkit-transform: translateY(30px);
+      -ms-transform: translateY(30px);
+          transform: translateY(30px);
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
   transition: all 0.2s;
 }
 .snackbar .event .event-name.show {
-  transform: translateY(0);
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
   opacity: 1;
 }
 .snackbar .list-group,
@@ -256,7 +288,10 @@ html h6 {
 }
 @media (max-width: 730px) {
   .snackbar {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     padding: 30px;
   }
   .snackbar .event {
@@ -279,45 +314,3 @@ html h6 {
   bottom: 50px;
   opacity: 1;
 }
-
-.setting-menu {
-  position: fixed;
-  top: 0px;
-  bottom: 0;
-  right: -300px;
-  width: 300px;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.35);
-  transition: all 0.5s;
-  z-index: 1000;
-}
-.setting-menu.open {
-  right: 0;
-}
-.setting-menu .menu-wrapper {
-  height: 100%;
-  position: relative;
-}
-.setting-menu .menu-wrapper .open-btn {
-  position: absolute;
-  background-color: #39c367;
-  height: 50px;
-  width: 50px;
-  left: -50px;
-  top: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  color: white;
-  border-radius: 4px 0px 0px 4px;
-  cursor: pointer;
-}
-.setting-menu .menu-wrapper .open-btn i {
-  font-size: 20px;
-}
-.setting-menu .menu-wrapper .menu {
-  background-color: #171717;
-  height: 100%;
-}
-
-/*# sourceMappingURL=style.css.map */

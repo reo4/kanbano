@@ -13,9 +13,15 @@ html body {
 }
 html body .wrapper {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding-bottom: 10px;
 }
 html h1, html h2, html h3, html h4, html h5, html h6 {
@@ -39,8 +45,12 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
 .header {
   background-color: #232328;
   padding: 15px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: 28px;
   font-weight: bold;
   color: #cccbd4;
@@ -51,8 +61,12 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
   font-weight: bold;
   margin-right: auto;
   margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .header .logo img {
   width: 30px;
@@ -60,13 +74,19 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
 }
 
 .board {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding-top: 30px;
   color: #484848;
-  align-items: start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
   overflow-x: auto;
   overflow-y: hidden;
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 .board::after {
   content: "";
@@ -79,7 +99,8 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
   max-width: 330px;
   min-width: 330px;
   padding-right: 5px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .list.blue .list-title {
   background-color: #7588ec;
@@ -125,6 +146,8 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
   padding: 15px 10px;
 }
 .card .card-media {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .card .card-media .avatar {
@@ -141,8 +164,11 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
   margin-top: 4px;
 }
 .card .card-tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin-top: 15px;
 }
 .card .card-tags .tag {
@@ -156,17 +182,25 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
 }
 
 .snackbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 20px;
   border-radius: 5px;
   position: fixed;
   bottom: 30px;
   background-color: white;
   color: black;
-  align-self: center;
-  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15);
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15);
   opacity: 0;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
   transition: all 0.5s;
   z-index: 2000;
 }
@@ -179,7 +213,9 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
 .snackbar .divider {
   margin: 0 20px;
   border: 1px solid #383838;
-  align-self: stretch;
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
 }
 .snackbar .event .event-name {
   background: blueviolet;
@@ -188,11 +224,17 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
   margin-left: 3px;
   color: white;
   opacity: 0;
-  transform: translateY(30px);
+  -webkit-transform: translateY(30px);
+      -ms-transform: translateY(30px);
+          transform: translateY(30px);
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
   transition: all 0.2s;
 }
 .snackbar .event .event-name.show {
-  transform: translateY(0);
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
   opacity: 1;
 }
 .snackbar .list-group, .snackbar .card-group {
@@ -226,7 +268,10 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
 }
 @media (max-width: 730px) {
   .snackbar {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     padding: 30px;
   }
   .snackbar .event {
@@ -249,5 +294,3 @@ html h1, html h2, html h3, html h4, html h5, html h6 {
   bottom: 50px;
   opacity: 1;
 }
-
-/*# sourceMappingURL=style.css.map */

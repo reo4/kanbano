@@ -14,6 +14,10 @@
       color: #28b76b;
       background-color: white;
       margin-right: 0.5rem;
+      transition: color .5s;
+      &:hover {
+        color: darken(#28b76b , 12%);
+      }
       @media (max-width: 650px) {
         margin-right: unset;
         margin-bottom: 20px;
@@ -23,6 +27,10 @@
       background-color: #28b76b;
       color: white;
       margin-left: 0.5rem;
+      transition: background-color .5s ;
+      &:hover {
+        background-color: darken(#28b76b , 10%)
+      }
       @media (max-width: 650px) {
         margin-left: unset;
       }

@@ -14,7 +14,9 @@
   border-radius: 4px;
 }
 .cloned-card {
-  transform: rotate(3deg);
+  -webkit-transform: rotate(3deg);
+      -ms-transform: rotate(3deg);
+          transform: rotate(3deg);
 }
 .dragging-active-list {
   position: relative;
@@ -31,9 +33,12 @@
   border-radius: 4px;
 }
 .cloned-list {
-  transform: rotate(2deg);
+  -webkit-transform: rotate(2deg);
+      -ms-transform: rotate(2deg);
+          transform: rotate(2deg);
   background-color: #f9f9f9f5;
-  box-shadow: 0 0 3px 0 gainsboro;
+  -webkit-box-shadow: 0 0 3px 0 gainsboro;
+          box-shadow: 0 0 3px 0 gainsboro;
   border: 1px solid white;
   border-radius: 5px;
 }

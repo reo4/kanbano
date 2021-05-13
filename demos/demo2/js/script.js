@@ -14,10 +14,10 @@
       listGroup.forEach(function (list) {
         list.style.display = 'inline-block'
       })
-      fromList.innerHTML = data.from.list
-      fromOrder.innerHTML = data.from.order
-      toList.innerHTML = data.to.list
-      toOrder.innerHTML = data.to.order
+      fromList.innerHTML = data.from.list_order
+      fromOrder.innerHTML = data.from.card_order
+      toList.innerHTML = data.to.list_order
+      toOrder.innerHTML = data.to.card_order
       setTimeout(function () {
         eventName.classList.add('show')
         eventName.innerHTML = 'onCardMoved'
@@ -29,8 +29,8 @@
       listGroup.forEach(function (list) {
         list.style.display = 'none'
       })
-      fromOrder.innerHTML = data.from.order
-      toOrder.innerHTML = data.to.order
+      fromOrder.innerHTML = data.from.list_order
+      toOrder.innerHTML = data.to.list_order
       setTimeout(function () {
         eventName.classList.add('show')
         eventName.innerHTML = 'onListMoved'
@@ -43,5 +43,6 @@
   document.querySelector('.close-btn').addEventListener('click', function () {
     snackbar.classList.remove('show')
   })
+
 
 }())
